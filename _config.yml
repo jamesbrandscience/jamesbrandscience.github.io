@@ -12,9 +12,9 @@ picture: assets/images/profile.jpg
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
-resume: true
-resume-external: true
-resume-url: https://jamesbrandscience.github.io/J_Brand_CV.pdf
+CV: true
+CV-external: true
+CV-url: https://jamesbrandscience.github.io/J_Brand_CV.pdf
 
 url: https://jamesbrandscience.github.io
 # your url: http://USERNAME.github.io
