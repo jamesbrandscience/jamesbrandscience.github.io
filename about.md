@@ -13,4 +13,4 @@ empirical evidence. This approach is highly multidisciplinary, with the aim bein
 answer and generate research questions that have implications for areas of psychology,
 linguistics and the cognitive sciences.</p>
 
-![Profile Image]({{ site.url }}/profile2.jpg)
+![Profile Image](https://jamesbrandscience.github.io/profile2.jpg)
