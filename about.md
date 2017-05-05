@@ -2,7 +2,6 @@
 title: About
 layout: page
 ---
-![Profile Image]({{ site.url }}/{{ site.picture }})
 
 <h2>Hello, world!</h2>
 <p>How do cognitive biases shape our language? My research focuses on the different ways
@@ -13,3 +12,5 @@ complimented by corpus based analyses, in order to produce robust and comprehens
 empirical evidence. This approach is highly multidisciplinary, with the aim being to
 answer and generate research questions that have implications for areas of psychology,
 linguistics and the cognitive sciences.</p>
+
+![Profile Image]({{ site.url }}/{{ site.picture }})
