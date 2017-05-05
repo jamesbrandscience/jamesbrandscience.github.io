@@ -27,8 +27,9 @@
                 <a class="link" href="{% if site.CV-external %}{{ site.CV-url }}{% else %}{{ site.url }}/{{ site.CV-url }}{% endif %}">CV</a>
             </li>
             {% endif %}
+        {% endif %}
             
-        {% if site.contact == true %}
+       {% if site.contact == true %}
             {% if page.title != "Contact" %}
                 <li class="item">
                     <a class="link" href="{{ site.url }}/contact">Contact</a>

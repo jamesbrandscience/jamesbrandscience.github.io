@@ -16,6 +16,10 @@ CV: true
 CV-external: true
 CV-url: https://jamesbrandscience.github.io/J_Brand_CV.pdf
 
+contact: true
+contact-external: true
+contact-url: https://jamesbrandscience.github.io/contact
+
 url: https://jamesbrandscience.github.io
 # your url: http://USERNAME.github.io
 
@@ -74,6 +78,7 @@ width: normal
 about: true
 blog: true
 gavagai: true
+contact: true
 
 # do you want to show the "read time" of the posts?
 read-time: true
