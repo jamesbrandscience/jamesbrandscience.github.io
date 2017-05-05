@@ -6,14 +6,6 @@
             </li>
         {% endif %}
 
-        {% if site.gavagai == true %}
-            {% if page.title != "Gavagai" %}
-                <li class="item">
-                    <a class="link" href="{{ site.url }}/gavagai">Gavagai</a>
-                </li>
-            {% endif %}
-        {% endif %}
-
         {% if site.about == true %}
             {% if page.title != "About" %}
                 <li class="item">
@@ -34,6 +26,22 @@
             <li class="item">
                 <a class="link" href="{% if site.CV-external %}{{ site.CV-url }}{% else %}{{ site.url }}/{{ site.CV-url }}{% endif %}">CV</a>
             </li>
+            {% endif %}
+            
+        {% if site.contact == true %}
+            {% if page.title != "Contact" %}
+                <li class="item">
+                    <a class="link" href="{{ site.url }}/contact">Contact</a>
+                </li>
+            {% endif %}
+        {% endif %}
+        
+        {% if site.gavagai == true %}
+            {% if page.title != "Gavagai" %}
+                <li class="item">
+                    <a class="link" href="{{ site.url }}/gavagai">Gavagai</a>
+                </li>
+            {% endif %}
         {% endif %}
     </ul>
 </nav>
