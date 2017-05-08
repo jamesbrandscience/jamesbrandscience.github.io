@@ -20,6 +20,10 @@ contact: true
 contact-external: true
 contact-url: https://jamesbrandscience.github.io/contact
 
+research: true
+research-external: true
+research-url: https://jamesbrandscience.github.io/research
+
 url: https://jamesbrandscience.github.io
 # your url: http://USERNAME.github.io
 
@@ -79,6 +83,7 @@ about: true
 blog: true
 gavagai: true
 contact: true
+research: true
 
 # do you want to show the "read time" of the posts?
 read-time: true
