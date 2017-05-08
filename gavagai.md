@@ -19,4 +19,4 @@ Non-research related things I do/like
 
 * [Geocaching](https://www.geocaching.com/play)
 
-![Profile Image](https://jamesbrandscience.github.io/gavagai.jpg)
+![Profile Image](https://jamesbrandscience.github.io/assets/gavagai.jpg)
