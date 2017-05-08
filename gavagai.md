@@ -18,3 +18,5 @@ Non-research related things I do/like
 * [The National Cycle Network](http://www.sustrans.org.uk/ncn/map)
 
 * [Geocaching](https://www.geocaching.com/play)
+
+![Profile Image](https://jamesbrandscience.github.io/gavagai.jpg)

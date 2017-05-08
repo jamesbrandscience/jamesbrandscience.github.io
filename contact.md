@@ -15,4 +15,4 @@ LA1 4YF
 
 email: j[_dot_]brand[_at_]lancaster.ac.uk
 
-
+![Profile Image](https://jamesbrandscience.github.io/arrival_bouba_kiki.jpg)
