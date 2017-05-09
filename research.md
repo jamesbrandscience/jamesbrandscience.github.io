@@ -13,7 +13,7 @@ layout: page
 
 #### Conference Proceedings
 
-* Monaghan, P., **Brand, J.**, Frost, R.L.A., & Taylor, G. (Accepted, 2017). Multiple, noisy cues for word learn- ing results in robust, generalisable learning. _Proceedings of the 39th Annual Conference of the Cognitive Science Society._
+* Monaghan, P., **Brand, J.**, Frost, R.L.A., & Taylor, G. (Accepted, 2017). Multiple, noisy cues for word learning results in robust, generalisable learning. _Proceedings of the 39th Annual Conference of the Cognitive Science Society._
 
 #### Selected Talks
 
