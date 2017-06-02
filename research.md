@@ -14,7 +14,7 @@ layout: page
 #### Conference Proceedings
 
 * Monaghan, P., **Brand, J.**, Frost, R.L.A., & Taylor, G. (Accepted, 2017). Multiple, noisy cues for word learning results in robust, generalisable learning. _Proceedings of the 39th Annual Conference of the Cognitive Science Society._
-
+[pdf](http://www.lancaster.ac.uk/staff/monaghan/papers/monaghan_brand_frost_taylor_17_cogsciconf.pdf)
 #### Selected Talks
 
 * **Brand, J.**, & Monaghan, P. (2016, May). Predictors of lexical stability in an artificially learnt language. Talk presented at _Psycholinguistics in Flanders_, Antwerp, Belgium.
