@@ -5,7 +5,7 @@ layout: page
 
 ### Contact
 
-Email: *j* [_dot_] *brand* [_at_] *lancaster.ac.uk*
+Email: j [_dot_] brand [_at_] lancaster.ac.uk
 
 Fylde College,  
 Department of Psychology  
