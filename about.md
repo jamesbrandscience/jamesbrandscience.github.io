@@ -5,9 +5,9 @@ layout: page
 
 ### Hello, world!
 
-I am a Research Associate working in the [Embodied Cognition Lab](http://www.lancaster.ac.uk/staff/connelll/lab/) at [Lancaster University's Department of Psychology](http://www.lancaster.ac.uk/psychology/)
+I am a Research Associate working in the wonderful [Embodied Cognition Lab](http://www.lancaster.ac.uk/staff/connelll/lab/) with [Dr Dermot Lynott](http://www.lancaster.ac.uk/staff/lynottd/) and [Dr Louise Connell](http://www.lancaster.ac.uk/staff/connelll/) at [Lancaster University's Department of Psychology](http://www.lancaster.ac.uk/psychology/)
 
-I have almost finished my PhD under the excellent supervision of [Prof Padraic Monaghan](http://www.lancaster.ac.uk/staff/monaghan/) and [Dr Peter Walker](http://www.lancaster.ac.uk/psychology/people/peter-walker)
+I completed my PhD under the excellent supervision of [Prof Padraic Monaghan](http://www.lancaster.ac.uk/staff/monaghan/) and [Dr Peter Walker](http://www.lancaster.ac.uk/psychology/people/peter-walker/)
 
 #### Research Interests
 How do cognitive biases shape our language? My research focuses on the different ways

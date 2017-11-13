@@ -7,7 +7,7 @@ layout: page
 
 #### Papers
 
-* **Brand, J.**, Monaghan, P., & Walker, P. (Under review). The changing role of form-to-meaning mappings for the growing vocabulary.
+* **Brand, J.**, Monaghan, P., & Walker, P. (In press). The Changing Role of Sound-Symbolism for Small Versus Large Vocabularies. _Cognitive Science_.
 
 * **Brand, J.**, & Monaghan, P. (In prep.). Experimental diachronics: Predictors of lexical stability and change in language evolution.
 
