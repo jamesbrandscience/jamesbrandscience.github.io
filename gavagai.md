@@ -11,7 +11,7 @@ Non-research related things I do/like
 
 * [Tweet of the day](http://www.bbc.co.uk/programmes/b01s6xyk)
 
-* [Thing of the month]
+* [Thing of the month](https://jamesbrandscience.github.io/thing_of_the_month)
 
 * BBC Radio 3’s [Late Junction](http://www.bbc.co.uk/programmes/b006tp52)
 
