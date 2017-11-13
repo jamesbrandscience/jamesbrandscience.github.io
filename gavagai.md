@@ -9,6 +9,10 @@ Non-research related things I do/like
 
 * I have a somewhat regular radio program on Bailrigg FM. It is called [Loxley Views](https://www.mixcloud.com/loxley_views/)
 
+* [Tweet of the day](http://www.bbc.co.uk/programmes/b01s6xyk)
+
+* [Thing of the month]
+
 * BBC Radio 3’s [Late Junction](http://www.bbc.co.uk/programmes/b006tp52)
 
 * [Mark Rothko](https://en.wikipedia.org/wiki/Mark_Rothko)
