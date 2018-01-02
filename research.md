@@ -17,6 +17,9 @@ layout: page
 
 #### Selected Talks
 
+* **Brand, J.**, (2017, November). Using Amazon’s Mechanical Turk for online data collection. Talk presented at _Lancaster University New Tricks_, Lancaster University, UK.
+[slides](https://jamesbrandscience.github.io/assets/MTurk_new_tricks_161117.pdf)
+
 * **Brand, J.**, & Monaghan, P. (2016, May). Predictors of lexical stability in an artificially learnt language. Talk presented at _Psycholinguistics in Flanders_, Antwerp, Belgium.
 [slides](https://jamesbrandscience.github.io/assets/PiF_JB_270516.pdf)
 
