@@ -7,7 +7,7 @@ layout: page
 
 #### Papers
 
-* **Brand, J.**, Monaghan, P., & Walker, P. (In press). The Changing Role of Sound-Symbolism for Small Versus Large Vocabularies. _Cognitive Science_. [pre-print](https://jamesbrandscience.github.io/assets/brand_monaghan_walker_cognitive_science_REVISED_100917.pdf) [repo](https://github.com/jamesbrandscience/Brand_Monaghan_Walker_17)
+* **Brand, J.**, Monaghan, P., & Walker, P. (In press). The Changing Role of Sound-Symbolism for Small Versus Large Vocabularies. _Cognitive Science_. [html](http://onlinelibrary.wiley.com/doi/10.1111/cogs.12565/full) [repo](https://github.com/jamesbrandscience/Brand_Monaghan_Walker_17)
 * **Brand, J.**, & Monaghan, P. (In prep.). Experimental diachronics: Predictors of lexical stability and change in language evolution.
 
 #### Conference Proceedings
