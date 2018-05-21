@@ -12,8 +12,13 @@ layout: page
 
 #### Conference Proceedings
 
-* Monaghan, P., **Brand, J.**, Frost, R.L.A., & Taylor, G. (Accepted, 2017). Multiple, noisy cues for word learning results in robust, generalisable learning. _Proceedings of the 39th Annual Conference of the Cognitive Science Society._
+* Monaghan, P., **Brand, J.**, Frost, R.L.A., & Taylor, G. (2017). Multiple, noisy cues for word learning results in robust, generalisable learning. _Proceedings of the 39th Annual Conference of the Cognitive Science Society._
 [pdf](http://www.lancaster.ac.uk/staff/monaghan/papers/monaghan_brand_frost_taylor_17_cogsciconf.pdf)
+
+#### PhD Thesis
+
+* **Brand, J.** (2017). The role of cognitive factors on the development and evolution of the vocabulary. _(Doctoral dissertation, Lancaster University)._
+[pdf](http://eprints.lancs.ac.uk/123794/1/2018BrandPhD.pdf)
 
 #### Selected Talks
 
