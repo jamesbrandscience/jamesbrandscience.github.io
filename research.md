@@ -7,14 +7,21 @@ layout: page
 
 #### Papers
 
-* **Brand, J.**, Monaghan, P., & Walker, P. (2017). The Changing Role of Sound-Symbolism for Small Versus Large Vocabularies. _Cognitive Science_. [open access](http://onlinelibrary.wiley.com/doi/10.1111/cogs.12565/full) and [repo](https://github.com/jamesbrandscience/Brand_Monaghan_Walker_17)
 
-* **Brand, J.**, & Monaghan, P. (In prep.). Experimental diachronics: Predictors of lexical stability and change in language evolution.
+* **Brand, J.**, Monaghan, P., & Walker, P. (2018). Changing signs: Testing how sound-symbolism supports early word learning. _Proceedings of the 40th Annual Conference of the Cognitive Science Society_. [pdf](http://eprints.lancs.ac.uk/125208/1/Brand_31_01_2018_final.pdf)
 
-#### Conference Proceedings
+* **Brand, J.**, Monaghan, P., & Walker, P. (2017). The changing role of sound-symbolism for small versus large vocabularies. _Cognitive Science_. [open access](http://onlinelibrary.wiley.com/doi/10.1111/cogs.12565/full) and [repo](https://github.com/jamesbrandscience/Brand_Monaghan_Walker_17)
 
 * Monaghan, P., **Brand, J.**, Frost, R.L.A., & Taylor, G. (2017). Multiple, noisy cues for word learning results in robust, generalisable learning. _Proceedings of the 39th Annual Conference of the Cognitive Science Society._
 [pdf](http://www.lancaster.ac.uk/staff/monaghan/papers/monaghan_brand_frost_taylor_17_cogsciconf.pdf)
+
+#### In prep
+
+* **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution.
+
+* Lynott D, Connell L, Brysbaert M, Carney J, &  **Brand, J.** (In prep). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts.
+
+* **Brand, J.** (In prep). Predicting the age of acquisition of concepts from sensorimotor experience.
 
 #### PhD Thesis
 
