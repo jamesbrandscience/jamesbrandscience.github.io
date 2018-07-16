@@ -8,7 +8,7 @@ layout: page
 #### Papers
 
 
-* **Brand, J.**, Monaghan, P., & Walker, P. (2018). Changing signs: Testing how sound-symbolism supports early word learning. _Proceedings of the 40th Annual Conference of the Cognitive Science Society_. [pdf](http://eprints.lancs.ac.uk/125208/1/Brand_31_01_2018_final.pdf)
+* **Brand, J.**, Monaghan, P., & Walker, P. (2018). Changing signs: Testing how sound-symbolism supports early word learning. _Proceedings of the 40th Annual Conference of the Cognitive Science Society_. [pdf](http://eprints.lancs.ac.uk/125208/1/Brand_31_01_2018_final.pdf) and [poster](https://jamesbrandscience.github.io/assets/Brand_Monaghan_Walker_CogSci_18.pdf)
 
 * **Brand, J.**, Monaghan, P., & Walker, P. (2017). The changing role of sound-symbolism for small versus large vocabularies. _Cognitive Science_. [open access](http://onlinelibrary.wiley.com/doi/10.1111/cogs.12565/full) and [repo](https://github.com/jamesbrandscience/Brand_Monaghan_Walker_17)
 
@@ -21,7 +21,7 @@ layout: page
 
 * Lynott D, Connell L, Brysbaert M, Carney J, &  **Brand, J.** (In prep). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts.
 
-* **Brand, J.** (In prep). Predicting the age of acquisition of concepts from sensorimotor experience.
+* **Brand, J.** (In prep). Predicting the age of acquisition of concepts from sensorimotor experience. [preview slides](https://jamesbrandscience.github.io/assets/LuCiD_090718.pdf)
 
 #### PhD Thesis
 
