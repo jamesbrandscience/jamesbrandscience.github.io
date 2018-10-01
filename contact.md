@@ -5,14 +5,12 @@ layout: page
 
 ### Contact
 
-Email: j [_dot_] brand [_at_] lancaster.ac.uk
+Email: james [_dot_] brand [_at_] canterbury.ac.nz
 
-Fylde College,  
-Department of Psychology  
-Lancaster University  
-Lancaster  
-UK
-
-LA1 4YF
+Locke Building
+University of Canterbury
+Private Bag 4800
+Christchurch 8140
+New Zealand
 
 ![Profile Image](https://jamesbrandscience.github.io/assets/arrival_bouba_kiki.JPG)
