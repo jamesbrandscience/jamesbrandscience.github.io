@@ -5,7 +5,7 @@ layout: page
 
 ### Contact
 
-##Email: james [_dot_] brand [_at_] canterbury.ac.nz
+###Email: james [_dot_] brand [_at_] canterbury.ac.nz
 
 (note my previous email j[_dot_]brand[_at_]lancaster.ac.uk will soon be deprecated)
 
