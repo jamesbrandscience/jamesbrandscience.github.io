@@ -6,7 +6,9 @@ layout: page
 ### Kia ora!
 
 I am a Post-doctoral Research Fellow at [the NZILLB](https://www.canterbury.ac.nz/nzilbb/) - University of Canterbury in New Zealand, researching the sociolinguistic factors of sound change.
-Previously, I worked as a Post-doc in the [Embodied Cognition Lab](http://www.lancaster.ac.uk/staff/connelll/lab/) at [Lancaster University](http://www.lancaster.ac.uk/psychology/).
+
+Previously, I have worked as a Post-doc in the [Embodied Cognition Lab](http://www.lancaster.ac.uk/staff/connelll/lab/) at [Lancaster University](http://www.lancaster.ac.uk/psychology/).
+
 I completed my PhD at Lancaster University under the supervision of [Prof Padraic Monaghan](http://www.lancaster.ac.uk/staff/monaghan/) and [Dr Peter Walker](http://www.lancaster.ac.uk/psychology/people/peter-walker/)
 
 #### Research Interests
