@@ -3,7 +3,7 @@ title: About
 layout: page
 ---
 
-### Kia ora
+### Kia ora!
 
 I am a Post-doctoral Research Fellow at [the NZILLB](https://www.canterbury.ac.nz/nzilbb/) - University of Canterbury in New Zealand, researching the sociolinguistic factors of sound change.
 Previously, I worked as a Post-doc in the [Embodied Cognition Lab](http://www.lancaster.ac.uk/staff/connelll/lab/) at [Lancaster University](http://www.lancaster.ac.uk/psychology/).
