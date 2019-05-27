@@ -22,4 +22,4 @@ The first recording will be taken at 9:00am, then on the next day it will be tak
 The idea is that it will give an account of the sounds experienced over the course of a 
 normal day, but a day that has actually lasted a year.
 
-It is inspired in part by ![Viv Corringham's - On the Hour in the Woods](https://www.farpointrecordings.com/product-page/viv-corringham-on-the-hour-in-the-woods)
+It is inspired in part by [Viv Corringham's - On the Hour in the Woods](https://www.farpointrecordings.com/product-page/viv-corringham-on-the-hour-in-the-woods)
