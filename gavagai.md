@@ -7,6 +7,8 @@ layout: page
 
 Non-research related things I do/like
 
+* [A year in a day](https://jamesbrandscience.github.io/a_year_in_a_day)
+
 * I have a somewhat (ir)regular radio program on Bailrigg FM. It is called [Loxley Views](https://www.mixcloud.com/loxley_views/)
 
 * [Tweet of the day](http://www.bbc.co.uk/programmes/b01s6xyk)
