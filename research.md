@@ -7,7 +7,7 @@ layout: page
 
 #### Online Tutorials
 
-* [Introduction to data exploration and visualisation in R](https://jamesbrandscience.github.io/assets/Tutorial_ggplot/Data_exploration_visualisation.html)
+* [Introduction to data exploration and visualisation in R](https://jamesbrandscience.github.io/LASS_workshop_ggplot2/Day_2.html)
 
 #### Papers
 
