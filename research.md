@@ -21,7 +21,7 @@ layout: page
 
 #### In prep
 
-* **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution.
+* **Brand, J.**, & Monaghan, P. (Submitted). Experimental diachronics: Predictors of lexical stability and change in language evolution.
 
 * Lynott D, Connell L, Brysbaert M, Carney J, &  **Brand, J.** (In prep). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts.
 
