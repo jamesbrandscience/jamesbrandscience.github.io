@@ -14,7 +14,7 @@ Email:<br/>
 
 **GitHub:** [here](https://github.com/jamesbrandscience)
 
-**Postal address**<br/>
+**Postal address:**<br/>
 7 Creyke Road<br/>
 University of Canterbury<br/>
 Ilam<br/>

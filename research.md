@@ -21,9 +21,9 @@ layout: page
 
 #### In prep
 
-* Lynott D, Connell L, Brysbaert M, Carney J, &  **Brand, J.** (In prep). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts. [pre-print](https://psyarxiv.com/ktjwp)
+* Lynott D, Connell L, Brysbaert M, Carney J, &  **Brand, J.** (Submitted). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts. [pre-print](https://psyarxiv.com/ktjwp)
 
-* **Brand, J.**, & Monaghan, P. (Submitted). Experimental diachronics: Predictors of lexical stability and change in language evolution.
+* **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution.
 
 * **Brand, J.** (In prep). Predicting the age of acquisition of concepts from sensorimotor experience. [preview slides](https://jamesbrandscience.github.io/assets/LuCiD_090718.pdf)
 
