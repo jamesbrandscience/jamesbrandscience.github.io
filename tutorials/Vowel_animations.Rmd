@@ -19,12 +19,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This document will give you the basic code structure to generate an aninmated vowel plot. It will give comments on what the different parts of code do, but if anything is unclear do let me know (<james.brand@canterbury.ac.nz>).
 
-## R markdown file
+## Download
+
+**R markdown file**
+
 The .Rmd file used to generate this file can be downloaded from
 
 <https://jamesbrandscience.github.io/tutorials/Vowel_animations.Rmd>
 
-## Data
+**Data**
 
 The data required to run the tutorial can be downloaded from
 
@@ -78,7 +81,7 @@ We can use some dummy data to go through the steps taken to make the animation, 
 
 ```{r}
 #load in the data
-vowels_data <- read.csv("Vowel_animations_data.csv")
+vowels_data <- read.csv("https://jamesbrandscience.github.io/tutorials/Vowel_animations_data.csv")
 
 #look at the first 5 rows
 head(vowels_data)
