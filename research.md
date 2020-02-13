@@ -28,7 +28,7 @@ layout: page
 
 #### In prep
 
-* **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution. [CogSci poster]
+* **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution.
 
 * **Brand, J.** (In prep). Predicting the age of acquisition of concepts from sensorimotor experience. [preview slides](https://jamesbrandscience.github.io/assets/LuCiD_090718.pdf)
 
