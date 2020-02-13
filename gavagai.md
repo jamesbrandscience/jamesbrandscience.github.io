@@ -11,7 +11,7 @@ Non-research related things I do/like
 
 * I have a somewhat (ir)regular radio program on Bailrigg FM. It is called [Loxley Views](https://www.mixcloud.com/loxley_views/)
 
-* [Tweet of the day](http://www.bbc.co.uk/programmes/b01s6xyk)
+* [Tweets 1](http://www.bbc.co.uk/programmes/b01s6xyk) and [2](https://www.xeno-canto.org/explore/random)
 
 * BBC Radio 3’s [Late Junction](http://www.bbc.co.uk/programmes/b006tp52)
 

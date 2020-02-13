@@ -13,6 +13,11 @@ layout: page
 
 #### Papers
 
+* Lynott, D., Connell, L., Brysbaert, M., **Brand, J.,** & Carney, J. (2019). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts. _Behaviour Research Methods_. [open access](https://link.springer.com/article/10.3758/s13428-019-01316-z), [osf](http://osf.io/7emr6/) and [shiny app](https://embodiedcognitionlab.shinyapps.io/sensorimotor_norms/)
+
+* **Brand, J.**, Hay. J., Clark, L., Watson, K., & Sóskuthy, M. (2019). In Calhoun, S., Escudero, P., Tabain, M., Warren, P. (eds.) _Proceedings of the 19th International Congress of Phonetic Sciences_ (pp. 1878-1881). [pdf](https://icphs2019.org/icphs2019-fullpapers/pdf/full-paper_952.pdf) and [slides](https://tinyurl.com/icphs-covar)
+
+* Sóskuthy, M., Hay. J., & **Brand, J.** (2019). Systematic covariation of monophthongs across speakers of New Zealand English. In Calhoun, S., Escudero, P., Tabain, M., Warren, P. (eds.) _Proceedings of the 19th International Congress of Phonetic Sciences_ (pp. 597-601). [pdf](https://icphs2019.org/icphs2019-fullpapers/pdf/full-paper_954.pdf)
 
 * **Brand, J.**, Monaghan, P., & Walker, P. (2018). Changing signs: Testing how sound-symbolism supports early word learning. _Proceedings of the 40th Annual Conference of the Cognitive Science Society_. [pdf](http://eprints.lancs.ac.uk/125208/1/Brand_31_01_2018_final.pdf) and [poster](https://jamesbrandscience.github.io/assets/Brand_Monaghan_Walker_CogSci_18.pdf)
 
@@ -23,9 +28,7 @@ layout: page
 
 #### In prep
 
-* Lynott D, Connell L, Brysbaert M, Carney J, &  **Brand, J.** (Submitted). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts. [pre-print](https://psyarxiv.com/ktjwp)
-
-* **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution.
+* **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution. [CogSci poster]
 
 * **Brand, J.** (In prep). Predicting the age of acquisition of concepts from sensorimotor experience. [preview slides](https://jamesbrandscience.github.io/assets/LuCiD_090718.pdf)
 
@@ -34,6 +37,7 @@ layout: page
 * **Brand, J.** (2017). The role of cognitive factors on the development and evolution of the vocabulary. _(Doctoral dissertation, Lancaster University)._
 [pdf](http://eprints.lancs.ac.uk/123794/1/2018BrandPhD.pdf)
 
+<!-- 
 #### Selected Talks
 
 * **Brand, J.**, (2017, November). Using Amazon’s Mechanical Turk for online data collection. Talk presented at _Lancaster University New Tricks_, Lancaster University, UK.
@@ -52,3 +56,4 @@ layout: page
 
 * **Brand, J.**, Monaghan, P., & Walker, P. (2015, January). The changing influence of form-meaning mappings during vocabulary development. Poster presented at the _Experimental Psychology Society London Meeting_. London, UK.
 [pdf](https://jamesbrandscience.github.io/assets/EPS_conference_2015.pdf)
+ -->
