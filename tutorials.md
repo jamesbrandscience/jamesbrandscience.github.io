@@ -15,7 +15,7 @@ Below you can find a number of different tutorials I have given on various topic
 
 > Introduction to key concepts, terminology and practices used for open science, this outlines why researchers may reap the benefits of a more open and transparent workflow (workshop given at NZLS)
 
-#### [GitHub for beginners](https://jamesbrandscience.github.io/tutorials/GitHub_stats_chat/README.html)
+#### [GitHub for beginners](https://jamesbrandscience.github.io/tutorials/GitHub_stats_chat/GitHub.html)
 
 > A step-by-step guide on how to set up and use GitHub and integrate it within your research workflow, this is aimed at those who have never used GitHub (tutorial given at stats-chat)
 
