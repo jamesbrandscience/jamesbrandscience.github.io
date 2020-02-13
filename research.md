@@ -5,9 +5,11 @@ layout: page
 
 ### Research
 
+<!-- 
 #### Online Tutorials
 
 * [Introduction to data exploration and visualisation in R](https://jamesbrandscience.github.io/LASS_workshop_ggplot2/Day_2.html)
+ -->
 
 #### Papers
 

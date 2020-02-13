@@ -3,7 +3,7 @@ name: James Brand
 bio: language / cognition / evolution
 
 # twitter summary info
-description: Personal homepage for James Brand psychology at Lancaster University
+description: Personal homepage for James Brand
 
 # if it's an external image, update below for true
 # better with square images
@@ -23,6 +23,10 @@ contact-url: https://jamesbrandscience.github.io/contact
 research: true
 research-external: true
 research-url: https://jamesbrandscience.github.io/research
+
+tutorials: true
+research-external: true
+research-url: https://jamesbrandscience.github.io/tutorials
 
 url: https://jamesbrandscience.github.io
 # your url: http://USERNAME.github.io
@@ -80,10 +84,11 @@ width: normal
 
 # if you don't need "about" or "blog", comment them out below
 about: true
-blog: true
+#blog: true
 gavagai: true
 contact: true
 research: true
+tutorials: true
 
 # do you want to show the "read time" of the posts?
 read-time: true

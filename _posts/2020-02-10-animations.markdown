@@ -1,14 +1,12 @@
 ---
-title: "Coming soon"
+title: "Animated vowel plots"
 layout: post
-date: 2017-05-05 12.38
+date: 2020-02-10
 image: /assets/images/markdown.jpg
 headerImage: false
 author: jamesbrand
-description: coming soon
+description: Animated vowel plots
 # jemoji: '<img class="emoji" title=":ramen:" alt=":ramen:" src="https://assets.github.com/images/icons/emoji/unicode/1f35c.png" height="20" width="20" align="absmiddle">'
 ---
 
-## Summary:
-
-Visit back here for some blog posts
+## How to make vowel plots of dynamic time related trajectories
