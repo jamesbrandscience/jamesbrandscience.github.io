@@ -3,7 +3,8 @@ layout: page
 title: Co-variation supplementary materials
 ---
 
-## At the margins of vowel-space change: Leaders and laggers in the evolution of vocalic subsystems:\nSupplementary materials
+## At the margins of vowel-space change: Leaders and laggers in the evolution of vocalic subsystems:
+## Supplementary materials
 
 Below are links to the supplementary materials for Brand, Hay, Clark, Watson & Sóskuthy article.
 
