@@ -5,7 +5,11 @@ title: Tutorials
 
 ## Tutorials
 
-Below you can find a number of different tutorials I have given on various topics. Please feel free to use and share them.
+Below you can find a number of different tutorials and online resources I have developed on various topics. Please feel free to use and share them.
+
+#### [Lancaster Sensorimotor Norms shiny app](https://embodiedcognitionlab.shinyapps.io/sensorimotor_norms/)
+
+> An interactive app written in R (using shiny) to allow users to explore the Lancaster Sensorimotor norms database ([Lynott et al. 2019](https://link.springer.com/article/10.3758/s13428-019-01316-z))
 
 #### [Vowel plot animations](https://jamesbrandscience.github.io/tutorials/Vowel_animations.html)
 
@@ -17,7 +21,7 @@ Below you can find a number of different tutorials I have given on various topic
 
 #### [GitHub for beginners](https://jamesbrandscience.github.io/tutorials/GitHub_stats_chat/GitHub.html)
 
-> A step-by-step guide on how to set up and use GitHub and integrate it within your research workflow, this is aimed at those who have never used GitHub (tutorial given at stats-chat)
+> A step-by-step guide on how to set up and use GitHub and integrate it within your research workflow, this is aimed at those who have never used GitHub (tutorial given at NZILBB stats-chat)
 
 #### [Data exploration and visualisation](https://jamesbrandscience.github.io/LASS_workshop_ggplot2/Day_2.html)
 
