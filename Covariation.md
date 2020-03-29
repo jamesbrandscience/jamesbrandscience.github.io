@@ -16,6 +16,6 @@ Below are links to the supplementary materials for Brand, Hay, Clark, Watson & S
 
 > Steps taken to produce the analysis reported in the paper, with additional analyses included
 
-#### [Shiny app](https://nzilbb.shinyapps.io/Covariation_app/) and [code](https://jamesbrandscience.github.io/assets/covariation/Covariation_shiny.zip)
+#### [Shiny app](https://nzilbb.shinyapps.io/Covariation_shiny/) and [code](https://jamesbrandscience.github.io/assets/covariation/Covariation_shiny.zip)
 
 > App and code used to generate the shiny app presented with the paper
