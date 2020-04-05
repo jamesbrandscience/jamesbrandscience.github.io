@@ -12,7 +12,7 @@ Below are links to the supplementary materials for Brand, Hay, Clark, Watson & S
 
 > Steps taken to filter the raw dataset
 
-#### [Analysis](https://jamesbrandscience.github.io/assets/covariation/Covariation_monophthongs_gamm.html)
+#### [Analysis](https://jamesbrandscience.github.io/assets/covariation/Covariation_monophthongs_gamm_JB.html)
 
 > Steps taken to produce the analysis reported in the paper, with additional analyses included
 
