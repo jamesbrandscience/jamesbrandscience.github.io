@@ -144,13 +144,13 @@ You should see the following folders/files (you can see a brief description by h
 <dt>`r fa("file-code", height = 18)` `r tippy::tippy("<code>ERCEL_tidyverse.Rmd</code>", tooltip = "<span style='font-size:14px;'>the R Markdown document used to create this worksheet (these documents will be covered at anoter session)<span>",  allowHTML = TRUE, placement = "right")`</dt>
 
 <dt>`r fa("file-code", height = 18)` `r tippy::tippy("<code>ERCEL_tidyverse.html</code>", tooltip = "<span style='font-size:14px;'>the .html file you are viewing, generated from the R Markdown document (you can view in a web browser offline)<span>",  allowHTML = TRUE, placement = "right")`</dt>
-</dl>
 
 <dt>`r fa("folder-open", height = 18)` `Plots`</dt>
 
 <dd>`r fa("image", height = 18)` `r tippy::tippy("<code>ercel_data_plot.png</code>", tooltip = "<span style='font-size:14px;'>the final visualisation of the data that we will create<span>",  allowHTML = TRUE, placement = "right")`</dd>
 
-<dt>`r fa("folder-open", height = 18)` `screenshots`</dt>
+<dt>`r fa("folder-open", height = 18)` `r tippy::tippy("<code>screenshots</code>", tooltip = "<span style='font-size:14px;'>the screenshots used in the tutorial<span>",  allowHTML = TRUE, placement = "right")`</dt>
+</dl>
 
 ## Open the `ercel_analysis.R` file
 
@@ -183,7 +183,7 @@ Learning about directory structures is important, but we probably don't have tim
 
 <strong>`r fa("lightbulb", height = 18)` Tip</strong><br/>
 
-You can run a line of code by clickling anywhere on the line and pressing:
+You can run a line of code by clicking anywhere on the line and pressing:
 
 `cmd + ENTER` (Mac)
 
@@ -195,7 +195,7 @@ You can run a line of code by clickling anywhere on the line and pressing:
 
 # 1. Load in the tidyverse
 
-The tidyverse is a collection of packages that makes using R much easier (in my opinion). The *tidy* philosophy incorporates design features that should hopefully make learning, using and understanding your and others code more acheivable. See the website for more details [https://www.tidyverse.org](https://www.tidyverse.org).
+The tidyverse is a collection of packages that makes using R much easier (in my opinion). The *tidy* philosophy incorporates design features that should hopefully make learning, using and understanding your and others code more achievable. See the website for more details [https://www.tidyverse.org](https://www.tidyverse.org).
 
 The first thing we need to do is load in the 'tidyverse` package to our R session library, which contain specific functions that will make completing the learning outcomes easier. I assume you have installed the package, if not see the next part.
 
@@ -265,7 +265,7 @@ This section is intended to give those not too familiar with coding a bit of ext
 
 In order for R to understand what we want to do, we can make use of the many functions that it understands. Functions are similar to verbs, in that they can do lots of different things, but in order to use them you need to learn how they work. For example, the English verb *to read* works well in a sentence like 'Jan read the book', but maybe does not work as well in the sentence 'read speak'. This is because the first sentence has a subject ('Jan') and an object ('the book'), whereas the second sentence only has another verb ('speak'), which does not make for a good sentence.
 
-In R there are also syntatic-style rules for how functions work (please note that natural languages and programming languages are very different, I am just using the terms verbs, nouns, syntax etc for an analogy).
+In R there are also syntactic-style rules for how functions work (please note that natural languages and programming languages are very different, I am just using the terms verbs, nouns, syntax etc for an analogy).
 
 The function `print()` is used to print something. If you try to run the code as it is (i.e. just `print()`) you will get an error saying:
 
@@ -367,7 +367,7 @@ Note that I refer to this as a *raw* file. This is because it has not been modif
 
 It is the starting point of our data story. Everything we do after will be changes that we (or anybody else) can reproduce.
 
-PLease, please, please never change the raw file! Going in to Excel/spreadsheet software and changing it in any way will comprimise the integrity of your data.
+Please, please, please never change the raw file! Going in to Excel/spreadsheet software and changing it in any way will compromise the integrity of your data.
 
 Any changes you do make should have a trail (a record of what you have done), which is your R code.
 
@@ -380,7 +380,7 @@ Any changes you do make should have a trail (a record of what you have done), wh
 
 As researchers, we may not always acquire our data in a `.csv` format. Naturally, there may be files that are in the `.xlsx` format. Using the `read_csv` function will not work for these files. We can use the `read_excel` for this, which is in the `readxl` package.
 
-We will not be using the excel version of the data for this worksheet, but will focus on the .csv version. Thi section is to show you how to read in excel files.
+We will not be using the excel version of the data for this worksheet, but will focus on the .csv version. This section is to show you how to read in excel files.
 
 ```{r}
 #load in the excel version of the data
@@ -419,7 +419,7 @@ View(ercel_data_raw)
 
 ```
 
-You should see this (make sure that the **View** has a captical **V**):
+You should see this (make sure that the **View** has a apolitical **V**):
 
 ![](screenshots/ercel_analysis_screen4.png)
 
@@ -528,7 +528,7 @@ Before we start using any of the above functions, we will first learn how to use
 
 The pipe is a special shorthand/operator that allows you to combine multiple lines of related code in a neat and tidy sequence. Think of it as a way to tell R **\*\*AND THEN DO THIS\*\***.
 
-Pipes are really helpfull and we will be using them throughout this worksheet.
+Pipes are really helpful and we will be using them throughout this worksheet.
 
 **keyboard shortcut**
 
@@ -604,7 +604,7 @@ We will remove the variables:
 
 We can do this with the `select()` function.
 
-Inside the function, we need to specify which varibles we want to remove.
+Inside the function, we need to specify which variables we want to remove.
 
 Below are some examples of the ways you can do this...
 
