@@ -100,19 +100,19 @@ This workshop session will focus on using the `tidyverse` package in R to comple
 
 We will focus on the following key learning outcomes:
 
-- How to work with a data set that is quite messy
+- **How to work with a data set that is quite messy**
 
-- How to clean up the data by using various Tidyverse functions
+- **How to clean up the data by using various Tidyverse functions**
 
-- How to make a (very nice) visualisation of the data
+- **How to understand different types of data and the ways to structure them**
 
 # Pre-requisites
 
-You do not need to be an expert in R to complete this worksheet.
+- You do not need to be an expert in R to complete this worksheet
 
-If you know R but are unfamiliar with the Tidyverse, I hope you will find it helpful and see the differences with base R coding.
+- If you know R but are unfamiliar with the Tidyverse, I hope you will find it helpful and see the differences with base R coding
 
-If you are familiar with the Tidyverse, I hope you might find something new in here.
+- If you are familiar with the Tidyverse, I hope you might find something new in here
 
 # Download the worksheet materials
 
@@ -125,6 +125,9 @@ If you are familiar with the Tidyverse, I hope you might find something new in h
 ---
 
 Once you have downloaded the folder, **double click it to make sure it has been unzipped**.
+
+
+## Files
 
 You should see the following folders/files (you can see a brief description by hovering over each item):
 
@@ -419,7 +422,7 @@ View(ercel_data_raw)
 
 ```
 
-You should see this (make sure that the **View** has a apolitical **V**):
+You should see this (make sure that the **View** has a a capital **V**):
 
 ![](screenshots/ercel_analysis_screen4.png)
 
@@ -427,26 +430,32 @@ You should see this (make sure that the **View** has a apolitical **V**):
 
 You might have noticed that there are some cells in our data that say `NA` (and look slightly grey when we use `View`).
 
-These are called **missing values** and occur when the cell is empty or has NA as the value
+These are called **missing values** and occur when the cell is **empty** or has **NA** as the value
 
 You can specify in the `read_csv()` or `read_excel()` functions if you want to make any particular value in your data a NA value.
 
-E.g. If you have the value NULL in your data, you can automatically code NULL as an NA using this code:
+E.g. If you have the value `NULL` in your data, you can automatically code `NULL` as an `NA` using this code:
 
 ```{r eval=FALSE}
 #only code values that are NULL as NAs
+#csv file
 missing_data_example <- read_csv("Data/missing_data_example.csv", na = "NULL")
+
+#xlsx file
 missing_data_example <- read_excel("Data/missing_data_example.xlsx", na = "NULL")
 
 ```
 
-Note that this will now no longer read in any empty or NA values, but we can make a vector of values if we have multiple values to code as NAs.
+Note that this will now only code "NULL" values as missing (nothing else), but we can make a vector of values if we want to specify multiple values as NAs.
 
-This code will read in NULL, NA, empty (""), 10 and ahoj values as missing. They will all appear as NA in our `missing_data_example2` object:
+The code below will read in `NULL`, `NA`, `empty` (""), `10` and `ahoj` values as missing. They will all appear as `NA` in our `missing_data_example2` object:
 
 ```{r eval=FALSE}
-#code values that are NULL, NA or empty as NAs
-missing_data_example2 <- read_csv("Data/missing_data_example.csv", na = c("NULL", "NA", ""))
+#code values that are NULL, NA, 10 or ahoj empty as NAs
+#csv file
+missing_data_example2 <- read_csv("Data/missing_data_example.csv", na = c("NULL", "NA", "", 10, "ahoj"))
+
+#xlsx file
 missing_data_example2 <- read_excel("Data/missing_data_example.xlsx", na = c("NULL", "NA", "", 10, "ahoj"))
 
 ```
@@ -796,7 +805,7 @@ The criteria for our filtering is quite simple:
 
 **Remove any participants who did not complete the questionnaire.**
 
-We can look at the varaible `Finished` to check this... were we can see that there is 1 participant with a `FALSE` value and 17 with a `TRUE` value (you can use `View(ercel_data_raw)` again or `skim(ercel_data_raw)` and look for the `Finished` variable).
+We can look at the variable `Finished` to check this, where we can see that there is 1 participant with a `FALSE` value and 17 with a `TRUE` value (you can use `View(ercel_data_raw)` again or `skim(ercel_data_raw)` and look for the `Finished` variable).
 
 Based on this, we can state that anybody who has a `TRUE` value for the `Finished` variable can be kept in our data.
 
@@ -817,7 +826,7 @@ We can see that we have successfully removed the row that contained the data whe
 
 <strong>`r fa("lightbulb", height = 18)` Bonus</strong><br/>
 
-If you look again at the `ercel_data_raw` data, you can see that are a few other variables that we can use to filter out this row.
+If you look again at the `ercel_data_raw` data, you can see that there are a few other variables that we can use to filter out this row.
 
 Can you write the code that filters out the row based on:
 
@@ -924,6 +933,33 @@ How many rows of data are there in `ercel_data_long`?<br/>`r tippy::tippy("<stro
 
 </div>
 
+<div class="alert alert-info">
+
+<strong>`r fa("lightbulb", height = 18)` Tip</strong><br/>
+
+`pivot_wider()`
+
+There may also be situations where your data is in a long format and you want to make it wide.
+
+If you want to pivot the data in this way we can use the `pivot_wider()` function.
+
+This works very similarly to `pivot_longer()`, but this time our arguments are:
+
+`names_from` - the column that contains the names of the variables (these will be the column names)
+
+`values_from` - the column that contains the values of the variables (these will be the cell values)
+
+Here is an example of how to convert our `ercel_data_long` back to a wide format
+
+```{r eval=FALSE}
+#pivot from long to wide
+ercel_data_long %>%
+  pivot_wider(names_from = day,
+              values_from = time)
+
+```
+
+</div>
 
 ### Separate values into rows<br/>`separate_rows()`
 
@@ -937,7 +973,6 @@ ercel_data_long %>%
   kableExtra::kable()
 
 ```
-
 
 This is problematic because we can't really do anything with the `time` data in this format.
 
@@ -1046,7 +1081,7 @@ ercel_data_long_rows <- ercel_data_long_rows %>%
 
 <strong>`r fa("lightbulb", height = 18)` Tip</strong><br/>
 
-There other functions that can manipulate strings and can be used within a `mutate`
+There are other functions that can manipulate strings and can be used within a `mutate`
 
 Have a look at the functions listed on the `stringr` package page (which is part of the `tidyverse`).
 
@@ -1204,13 +1239,26 @@ ercel_data_long_rows <- ercel_data_long_rows %>%
 
 ```
 
-# Combining everything together
+# 6. Combining everything together
 
 We can now combine all of our data processing steps in a complete set of code, using the pipe.
 
+This will:
+
+1. read in the raw data
+
+2. filter the data
+
+3. select which columns to keep
+
+4. pivot the data to a long format
+
+5. separate values to individual rows
+
+6. mutate certain variables
+
 ```{r message=FALSE}
 #create the final data using different processing steps
-
 ercel_data <- read_csv(file = "Data/ercel_questionnaire_data.csv") %>%
   filter(Finished == TRUE) %>%
   select(vaše_jméno, starts_with("day")) %>%
@@ -1236,8 +1284,13 @@ ercel_data <- read_csv(file = "Data/ercel_questionnaire_data.csv") %>%
 
 ```
 
-# Summarising (`summarise`) and plotting (`ggplot`) preview
+# Preview of the next session (summarising and ggplot)
 
+The below code uses some extra functions that summarise the data and then plots it.
+
+This code is intended as a preview for the next session, where we will cover summarising and plotting.
+
+**If you find this section difficult to understand, that is quite natural!**
 
 ```{r}
 #summarise the data to count availability based on time and day
