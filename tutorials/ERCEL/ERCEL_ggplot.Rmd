@@ -684,7 +684,7 @@ participant - The participant ID (categorical)
 
 Now let's visualise the data...
 
-## `Colour`
+## `geom_smooth`
 
 First we will plot:
 
@@ -694,13 +694,20 @@ First we will plot:
 
 add a `geom_smooth(method = "lm")`
 
+```{r}
+ggplot(word_learning, aes(x = days, y = number_of_words)) +
+  geom_smooth(method = "lm")
+
+```
+
+
 Also...
 
 Make different `geom_smooth` lines for our `years_in_NZ`, we can do this by adding in `colour = years_in_NZ` to our `aes`
 
 ```{r}
 ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
-  geom_smooth(method = "lm", na.rm = TRUE)
+  geom_smooth(method = "lm")
 
 ```
 
@@ -724,7 +731,7 @@ Note: We need to add an `aes` to the `geom_line`, here we will use `group = part
 ```{r}
 ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
   geom_line(aes(group = participant)) +
-  geom_smooth(method = "lm", na.rm = TRUE)
+  geom_smooth(method = "lm")
 
 ```
 
@@ -741,7 +748,7 @@ Note: `alpha` goes outside of the `aes` argument.
 ```{r}
 ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
   geom_line(aes(group = participant), alpha = 0.2) +
-  geom_smooth(method = "lm", na.rm = TRUE)
+  geom_smooth(method = "lm")
 
 ```
 
@@ -760,7 +767,7 @@ Note: We can facet more than one variable, but for now we will just focus on bas
 ```{r}
 ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
   geom_line(aes(group = participant), alpha = 0.2) +
-  geom_smooth(method = "lm", na.rm = TRUE) +
+  geom_smooth(method = "lm") +
   facet_wrap(~age_group)
 
 ```
@@ -774,7 +781,7 @@ Let's add in a `theme` to the end of our previous plot, specifically using `them
 ```{r}
 ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
   geom_line(aes(group = participant), alpha = 0.2) +
-  geom_smooth(method = "lm", na.rm = TRUE) +
+  geom_smooth(method = "lm") +
   facet_wrap(~age_group) +
   theme_bw()
 
