@@ -94,31 +94,28 @@ From yesterday, you would have learnt how to wrangle data and get it in a shape 
 
 It is always a good first step, once your data has been tidyed, to explore that data in some way. It is __never__ a good idea to jump straight into analysing a dataset you have not explored. This is part of getting to know your data. Imagine a situation where I give you a coffee cup but do not say anything else... would you go straight ahead and drink from it? You might ask basic questions first, what is inside, how was it made, is it alright to drink, is there anything wrong with it etc.
 
-These same sort of questions should be asked when you have got your data, what does the data look like, how is it structured, is there anything that 
+These same sort of questions should be asked when you have got your data, what does the data look like, how is it structured, is there anything that is wrong with it etc.
 
 ![Get to know your coffee/data first. Source: https://s3-media1.fl.yelpcdn.com/bphoto/sUsViyPtZIf_aDZz-2O_oA/ls.jpg](Images/coffee.jpg)
 
 ## Data visualisation
 
-When getting to know your data, it might be intuitive to look at basic descriptive statistics, that provide summaries of your variables. But sometimes, your data may require visualition to assist in this process, particularly when you have lots of data to work with. As we will see, data visualisation allows you to produce informative representations of your data, providing useful insights and observations that may not be possible from summaries alone. This is a key step to knowing your data better and can often help guide you in the next stages of analysis. These types of visualisation are primarily for you, do not always need to look fancy, but instead inform you in ways not always possible by just looking at numbers.
+When getting to know your data, it might be intuitive to look at basic descriptive statistics, that provide summaries of your variables. But sometimes your data may require visualition to assist in this process, particularly when you have lots of data to work with. As we will see, data visualisation allows you to produce informative representations of your data, providing useful insights and observations that may not be possible from summaries alone. This is a key step to knowing your data better and can often help guide you in the next stages of analysis. These types of visualisation are primarily for you, do not always need to look fancy, but instead inform you in ways not always possible by just looking at numbers.
 
-As the range of options available to visualise your results in different ways grows, you will be faced with decisions that need to be made about how best to present your final analyses. This means considering an audience that you may never encounter, but who need to understand clearly (and sometimes quickly) what it is you are trying to show. Thus, having a suitable and decent visualisation can often make a big impact on your poster/thesis/publication in Science.
+As the range of options available to visualise your results in different ways grows, you will be faced with decisions that need to be made about how best to present your final analyses. This means considering an audience that you may never encounter, but who need to understand clearly (and sometimes quickly) what it is you are trying to show. Thus, having a suitable and decent visualisation can often make a big impact on your poster/thesis/publication.
 
-![Source: http://phdcomics.com/comics.php?f=1796](Images/Pie.jpg)
-
-# Before we start doing practical things...
+## Load in library
 
 We will continue using the `tidyverse` to explore and visualise data, to do so we need to do the following:
 
-1. Tell `R` that we want to use the `tidyverse` package... If this loads with no problems, you do not have to do anything else just now
+Tell `R` that we want to use the `tidyverse` package... If this loads with no problems, you do not have to do anything else just now
 
 ```{r}
 library(tidyverse)
 
 ```
 
-
-# Principles of data exploration
+# 1. Principles of data exploration
 
 When you have gone through the process of collecting all of your data, have followed the excellent advice regarding data wrangling (from yesterday), the next step will be to explore your data and make decisions about what your next steps might be in your workflow.
 
@@ -266,7 +263,7 @@ __Tip.__ Have a look at the Datasaurus dozen for more Anscombe's quartet style e
 ![](Images/DinoSequentialSmaller.gif)
 </div>
 
-# Principles of data visualisation
+# 2. Principles of data visualisation
 
 ## The (R)evolution of the figure
 
@@ -321,7 +318,7 @@ Three key design principles to think about when creating visualisations for othe
 ![Aspect ratio choices. Source: http://socviz.co/lookatdata.html](Images/Aspect_ratio.png)
 
 
-# Making your plots with ggplot
+# 3. Making your plots with ggplot
 
 For the remainder of the session, we will focus on practically building visualisations using the `ggplot2` package. As with many things in R, there is a whole lot more you can learn to do once you have the basics, so today we will focus on building up your practical knowledge of a number of `ggplot2's` most commonly used features.
 
@@ -620,7 +617,28 @@ __Q.__ What happens when you change the `width = 0.1` argument to `width = 0.5`?
 __Q.__ You can change the `height` argument to the `geom_jitter` from 0, but why would this not be a good thing to do for our plot? Try it with `height = 5`.
 </div >
 
-# Customising your visualisations
+### `geom_violin`
+
+Another development on visualising our data is the __violin plot__ using `geom_violin`.
+
+These are becoming more and more popular to represent this type of data as they show a bit more information than a boxplot...
+
+```{r}
+ggplot(anscombe_long_x, aes(x = x, y = value)) +
+  geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) +
+  geom_jitter(width = 0.1, height = 0)
+
+```
+
+<div class = "blue">
+__Q.__ What are the differences between a __boxplot__ and a __violin plot__?
+</div >
+
+<div class = "green">
+__Tip.__ For more information about violin plots, see https://ggplot2.tidyverse.org/reference/geom_violin.html.
+</div >
+
+# 4. Customising your visualisations
 
 So far our visualisations have not looked particularly eye-catching, you might be thinking that you could probably make the same plots in excel/SPSS/Python... in this section we will look at the way you can really make your visualisations stand out, whilst also producing concise and readable representations of what can be quite complex datasets.
 
@@ -686,9 +704,18 @@ ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) 
 
 ```
 
-Now let's add in some raw data...
+<div class = "green">
+__Tip.__ The `method = "lm"` part of the geom_smooth indicates you want to plot a linear model (i.e. a simple regression), this is not a linear mixed-effects model visualisation. Be extremely cautious if you present your visualisations using this method, but your quantitative analysis uses a different method.
+
+If you leave plot using `geom_smooth()` and do not add a `method = ` argument, you might get a plot that uses the default method (usually a `loess` smooth). Again, if your analysis does not use this method you should not be presenting your data with this method.
+
+See [this post](https://stackoverflow.com/questions/31075407/plot-mixed-effects-model-in-ggplot) for more information on plotting lmer results.
+
+</div >
 
 ## `geom_line`
+
+Now let's add in some raw data...
 
 Instead of using `geom_point`, we can use `geom_line` to track how `number_of_words` changes over time.
 
@@ -761,7 +788,7 @@ __Q.__ What has changed just by adding this small additional line of code?
 __Q.__ Try changing the `theme_bw()` line to `theme_dark`... when would this plot be appropriate?
 </div >
 
-## `wordcloud`
+## Bonus: `wordcloud`
 
 For those who are working with text data...
 
@@ -831,29 +858,6 @@ Great!!
 <!-- ### Interactions -->
 
 <!-- Visualising an interaction between 2 variables is a really helpful way to show what your statistical analyses represents. -->
-
-
-
-
-<!-- ### `geom_violin` -->
-
-<!-- Another development on visualising our data is the __violin plot__ using `geom_violin`. -->
-
-<!-- <!-- These are becoming more and more popular to represent this type of data as they show a bit more information than a boxplot... --> -->
-
-<!-- ```{r} -->
-<!-- ggplot(anscombe_long_x, aes(x = x, y = value)) + -->
-<!--   geom_violin(draw_quantiles = c(0.25, 0.5, 0.75)) -->
-<!-- ``` -->
-
-<!-- <div class = "blue"> -->
-<!-- __Q.__ What are the differences between a __boxplot__ and a __violin plot__? -->
-<!-- </div > -->
-
-<!-- <div class = "green"> -->
-<!-- __Tip.__ For more information about violin plots, see https://ggplot2.tidyverse.org/reference/geom_violin.html. -->
-<!-- </div > -->
-
 
 
 
