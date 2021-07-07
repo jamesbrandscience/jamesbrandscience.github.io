@@ -1,0 +1,421 @@
+---
+title: "Ling310 Week 2 - vowels"
+subtitle: ""
+author: "Jen Hay and James Brand<br/><br/>Email:<br/>jen.hay@canterbury.ac.nz<br/>james.brand@canterbury.ac.nz<br/>"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  # pdf_document: default
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    collapsed: false
+    df_print: paged
+    code_folding: show
+
+---
+<!-- set the colour scheme of the html file -->
+<style>
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: #95A044;
+}
+code {
+    color: inherit;
+    background-color: rgba(149, 160, 68, 0.5);
+}
+pre.question {
+    background-color: rgba(149, 160, 68, 0.2);
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE, dpi=300)
+
+```
+
+---
+
+# Learning outcomes:
+
+- Use Praat to create an annotated version of the word list recording
+- Inspect the formants of the different vowels
+- Use a Praat script to extract the F1 and F2 values of each of the vowels
+- Use R to plot vowels
+
+---
+
+# Annotating in Praat
+
+## Reading and inspecting your sound file
+
+1. Create a directory (folder) on your computer. This can be in the `Documents` folder. Name the directory something sensible, e.g. `yourname_Ling310`. Put your sound recording in this folder.
+
+2. Open `Praat`, and select `Open… > Read from File`, and select your file (e.g. `your_name.wav`).
+
+3. The file will appear in the `Object window`. Select `View and Edit` to look at the file.
+
+4. Zoom in to one section of the recording, If the Spectrogram is not showing, Select `Spectrum > Show Spectrogram`
+
+5. Scroll through the file and listen to the different words/sentences. If you press the `tab` key, then it will play the visible portion of the file. You can also click on the bar below that says `visible part x seconds`.
+
+6. To see how good the tracking of the formants is, let’s turn on the formant tracker: `Formant > show formants`.
+
+7. Focus on the first word of the recording, this should be the word **heed**, so a **FLEECE** vowel.
+Identify the first 2 formants (the lowest two lines of red dots) and check if they look to be in the right place?
+
+8. If not, you can play with the formant settings to try and get a better fit for your voice. Select `Formant > Formant settings`. The default is for Praat to find 5 formants under 5500Hz. The frequency range that the first 5 formants can be found in will vary from speaker to speaker. You could try 5000, or 6000, and see what happens to the tracking. Play around to find a good setting for your voice. Make a note of this setting if you change the defaults.
+
+![Praat formants](praat1.png)
+
+## Labelling the file
+
+1. We now want to label this file, so close the Spectrogram Window and return to the `Object Window`, select the sound file again and select `Annotate > To TextGrid`.
+
+      The first field (*all tier names*) asks for the names of the tiers you want. We want **three tiers**, so type `word vowel formant` in the box.
+
+      The second field (*which of these are point tiers?*) wants to know which are labelled points, this will be our **formant** tier, so only type `formant` here.
+
+      Click `OK`, this will create a new object called `TextGrid YOURNAME`
+
+2. Select the sound and textgrid together (by using `Shift + Click`) and select `View and Edit`.
+
+3. On the sound waveform, position the cursor (using left-mouse button) at the onset of the first word. Then go to the first tier and click with left-mouse button on the `small blue circle`. This should create a blue vertical line, marking the onset of the first word as a boundary (see the figure below).
+
+      Then put the cursor (in the same way) at the end of the first word. If you are happy with where the cursor is located, create a **second boundary** by clicking on the blue circle. Now if you click within the two boundaries, the segment will turn yellow. Press `tab`, you will hear the word. Now simply type the word in orthographic form – e.g. `heed`, this will appear in the indicated yellow segment.
+
+      If you need to remove a boundary, click on it, then click `Boundary > Remove`
+
+      Repeat on the vowel tier, this time indicating the beginning and end of the vowel. Label the vowel with the relevant lexical set word (e.g. `FLEECE, DRESS…`), the lexical sets are given below.
+      
+5. Click on the position in the spectrogram where you wish to take the formant reading from, choosing a point where the formants seem to be least affected by their surrounding consonants and at their full target. For many monophthongs, a point near the middle of the vowel, where F1 is highest is often a good choice.  Then click on the circle at the top of the formant tier to label the spot – just label it with an `x` (we only want one boundary here, not two).
+
+6. Proceed through until all the words are labelled (ignore the sentences for today). The TextGrid is not being saved to disk automatically.  At the end (and also periodically) – hit `Ctrl + S` or in the Object Window, select the TextGrid, and select `Save > Save as text file`.
+
+7. Your final labelled tiers should look something like the figure below.
+
+![Praat TextGrid tiers](praat2.png)
+
+![Wells (1982) lexical sets](wells1.png)
+
+## Loading and editing the Praat script
+
+1. Now we want to extract the formant values at the times you marked (the formant tier). We are going to do this with a Praat script. Download `formantscript.praat` from Learn and put into your directory.  Then load it into Praat by selecting `Praat > Open praat script`. Have a look over the script – it steps through all of your TextGrid points, and gathers information about them to write to a `.csv` file.
+
+2. If you used a maximum formant value different from 5500Hz you will have to edit this in the relevant position in the file.
+
+3. You will also need to give the script a local path to write to. This will be your directory. To get the directory’s path (on a Mac), for windows see [this link](https://www.wikihow.com/Find-a-File%27s-Path-on-Windows):
+
+- Navigate to the folder
+
+- Right click on the folder and find the `copy “yourname_Ling310”` option
+
+- Hold down the `option/⌥` button, this will change the option to `copy “yourname_Ling310” as pathname` and click on it
+
+- This will store the pathname in your clipboard and you can paste it as text in to the Praat script
+
+## Running the script
+
+1. Select both the sound file and the TextGrid in the object window (using `shift + click`).  
+
+2. Return to the script window, and select `Run`
+
+    If all is well, you should get a new window that says:
+
+    **Whoo-hoo! It didn't crash!  File written to YOUR_FILEPATH/YOUR_NAME_formants.csv**
+    
+    If all is not, then put up your hand!
+
+3. Go to the folder and marvel at your awesome Praat output, it should look something like this.
+
+![Excel file](excel1.png)
+
+<div class="alert alert-info">
+  <strong>Bonus!</strong><br/><br/>1. Continue to annotate the sentences of your recording<br/><br/>2. How might you improve the Praat script to include the F3 of the vowel?><br/><br/>3. Draw what you think your vowel space looks like in terms of F1~F2 space.
+</div>
+
+---
+
+**Have a break!**
+
+---
+
+# Plotting vowels in R
+
+If you want to do this part on your own computerr, you can download at the following links [R](https://cran.stat.auckland.ac.nz) and [RStudio](https://rstudio.com/products/rstudio/download/#download)
+
+A quick tour of R:
+
+- **What is R?** A programming language to do statistics (like a fancy calculator)
+- **What is RStudio** A programme that makes it easy to use R
+- **Why use it?** It is free and you can do lots more than just statistics with it (like making visualisations)
+**How do I R?** You write code, then look at things that are produced by your code
+- **Is it hard to use?** It can be, but don't worry, we will go step-by-step, *\*\*you do not need to have any prior experience coding\*\**.
+
+## R basics
+
+We first we want to **open RStudio**, when it is open click `File > New file > R script`, this will open basically a blank file to write your code. You can see how RStudio structures things below.
+
+![RStudio](R1.png)
+
+In the `code` section, write the following and see what the output gives you (you can run the line by pressing `command + enter` on a Mac or `ctrl + enter` on Windows).
+
+```{r}
+cat("Hello world!")
+```
+
+We want to do a bit more than just print words though, we first need to install a package that can make doing some fancy things easier. Run the following code (you can copy and paste or type it in the code section), this will install and load the [tidyverse](https://www.tidyverse.org) package:
+
+```{r eval=FALSE}
+install.packages("tidyverse")
+
+```
+```{r}
+library(tidyverse)
+
+```
+
+Next, we want to load in our data, this will be the output from the Praat script (`YOURNAME_formants.csv`).To load the data, we need to tell where the data is and what we want to refer to the data as.
+
+*note any code which is preceeded by a `#` is there as a comment, which just describes what the code is doing.*
+
+```{r echo=FALSE}
+setwd("/Users/james/Documents/UC/Ling310/Praat") #this sets the directory so R knows where to look for thing
+
+YOURNAME_formants <- read.csv("James_formants.csv") #this is our data
+
+# View(James_formants)
+
+```
+```{r eval=FALSE}
+setwd("YOUR_DIRECTORY_FILEPATH") #this sets the directory so R knows where to look for thing
+
+YOURNAME_formants <- read.csv("YOURNAME_formants.csv") #this is our data
+
+View(YOURNAME_formants) #opens up the data so you can see it
+
+```
+
+Once you have done this, the final thing to do is to check that the data looks alright.
+
+    - You should have 7 variables/columns
+    
+    - 38 observations/rows
+    
+    - No empty/blank/NA cells
+    
+    - The `file` column should contain your name
+
+## Plotting
+
+Next we want to start building our vowel plot. To do this we will use something called `ggplot`, this is a really neat way to turn our data into a visualisation. We will go through this step by step.
+
+```{r fig.width=4, fig.height=4}
+#step 1. write the function - this should just give a gray canvas
+ggplot()
+
+#step 2. tell it what our data is - still nothing new
+ggplot(data = YOURNAME_formants)
+
+#step 3. tell it what our x and y axes are (these are called aesthetics or aes in ggplot)
+ggplot(data = YOURNAME_formants, aes(x = F1, y = F2))
+
+#step 4. tell it to add some points (these are called geometric objects or geoms), note we use '+' and a start a new line here as it is a new layer to the canvas
+ggplot(data = YOURNAME_formants, aes(x = F1, y = F2)) +
+  geom_point()
+
+#step 5. add a colour system (this is an aesthetic)
+ggplot(data = YOURNAME_formants, aes(x = F1, y = F2, colour = phoneme)) +
+  geom_point()
+
+#step 6. realise that things look odd, let's correct the x and y axis to match the correct format
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme)) +
+  geom_point()
+
+#step 7. still looks odd, lets reverse the x and y axes so they follow the conventional format
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme)) +
+  geom_point() +
+  scale_x_reverse() +
+  scale_y_reverse()
+
+#step 8. move the axes to the conventional positions (i.e. x = top and y = right)
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme)) +
+  geom_point() +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right")
+
+#step 9. make the background less gray (use a black and white or bw theme)
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme)) +
+  geom_point() +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right") +
+  theme_bw()
+
+#step 10. change the points to text
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme, label = phoneme)) +
+  geom_text() +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right") +
+  theme_bw()
+
+#step 11. remove the legend
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme, label = phoneme)) +
+  geom_text(show.legend = FALSE) +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right") +
+  theme_bw()
+
+#step 12. add an elipse (this will show the spread of the data, it is done with the stat_elipse layer)
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme, label = phoneme)) +
+  geom_text(show.legend = FALSE) +
+  stat_ellipse(level = 0.8, show.legend = FALSE) +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right") +
+  theme_bw()
+
+```
+
+One final thing we could do is to get the `mean` values for each vowel and plot them, instead of having the individual data points. To do this we need to make some new data, we will call this new data `YOURNAME_formants_means` and it will have a mean value for F1 and F2 for each of the vowels.
+
+```{r}
+YOURNAME_formants_means <- YOURNAME_formants %>% #take the original data
+  group_by(phoneme) %>% #tells it to group by each of the vowels
+  summarise(F1 = mean(F1), #calculates the mean F1
+            F2 = mean(F2)) #calculates the mean F2
+
+#see what the data looks like
+YOURNAME_formants_means
+
+```
+
+We can now use this data and the values to show where the mean F1 and F2 locations of each vowel are.
+
+```{r}
+ggplot(data = YOURNAME_formants, aes(x = F2, y = F1, colour = phoneme, label = phoneme)) +
+  geom_text(data = YOURNAME_formants_means, show.legend = FALSE) +
+  stat_ellipse(level = 0.8, show.legend = FALSE) +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right") +
+  theme_bw()
+
+```
+
+<div class="alert alert-info">
+  <strong>Bonus!</strong><br/><br/>1. Have a play around and see if you can change the size of the text (tip, if you write something that says the size equals a number, inside the geom_text brackets this might work).<br/><br/>2. Did you notice an error message when using the stat_elipse function? Why are some of the vowels not able to have an elipse? What happens when you change the value = 0.8 to a smaller or bigger number?
+</div>
+
+## Comparing vowel spaces
+
+One thing that we might want to do is to compare the vowel spaces of two people with different sociolinguistic backgrounds. For this we can take the data from my (James) recording and see how the vowel space differs to yours.
+
+First let's load in James' data.
+
+```{r}
+James_formants <- read.csv("https://jamesbrandscience.github.io/James_formants.csv")
+
+```
+
+Next, we want to do add James' data to your data, but instead of copying and pasting, we can tell R to add the rows to the `YOURNAME_formants` data. We can do this with `rbind` which just means bind the rows together. We will call this new dataset `YOURNAME_formants_binded`, which should have 76 rows and 7 variables.
+
+```{r}
+YOURNAME_formants_binded <- YOURNAME_formants %>%
+  rbind(James_formants)
+
+```
+
+We now have two sets of data, yours and James', we can identify which rows belong to who by using the `file` column - your data should have your name, James' should have James', both should have the same number of rows (38). We can check this.
+
+```{r}
+YOURNAME_formants_binded %>%
+  group_by(file) %>%
+  summarise(n_rows = n())
+
+```
+
+Now let's compare the two vowel spaces by updating our previous plot containing the raw data (i.e. not the mean values).
+
+Note, we update the data and add in a new layer `facet_wrap`, this splits the plot into the separate speakers.
+
+```{r}
+ggplot(data = YOURNAME_formants_binded, aes(x = F2, y = F1, colour = phoneme, label = phoneme)) +
+  geom_text(show.legend = FALSE) +
+  stat_ellipse(level = 0.8, show.legend = FALSE) +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right") +
+  facet_wrap(~file) + #new layer!
+  theme_bw()
+
+```
+
+<div class="alert alert-info">
+  <strong>Bonus!</strong><br/><br/>1. Do the vowel spaces look different? Why might this be?<br/><br/>2. Is there a way to transform the data in any way that removes anatomical differences? Why might this be useful when studying sound change?
+</div>
+
+---
+
+# BONUS vowel normalisation
+
+We mnight want to normalise the data so that we can compare the two vowel spaces where the anatomical difference, such as vocal tract length, are controlled for. To do this, we need to normalise the data, this basically means that the values will be on the scale and comparable in terms of where they are in a non Hz scale.
+
+To do this we can use the Lobanov (1971) method.
+
+Lobanov formula:
+
+$$
+\begin{equation}
+F_{lobanov_i} = \frac{(F_{raw_i}-\mu_{raw_i})}{\sigma_{raw_i}}
+\end{equation}
+$$
+
+- $i$ = either F1 or F2 
+- $F_{lobanov_i}$ = the normalised value in $i$
+- $F_{raw_i}$ = the raw formant measurement value in $i$
+- $\mu_{raw_i}$ = the mean formant value calculated across all raw values in $i$
+- $\sigma_{raw_i}$ = the standard deviation calculated across all raw values in $i$
+
+In plain English, the formula subtracts the mean formant value of a speaker from the raw individual formant value, then divides that by the standard deviation of the formant values.
+
+e.g. if a speaker has a raw F1 of 400hz, a mean F1 of 500hz and a standard deviation of 70hz, this would give a Lobanov normalised value of (400-500)/70 = -1.43.
+
+So we need a new dataset, one with the mean and sd per speaker.
+
+```{r}
+#standard Lobanov normalisation - calculate means across all vowels per speaker
+YOURNAME_formants_means_lobanov <- YOURNAME_formants_binded %>%
+  group_by(file) %>%
+  summarise(mean_F1_lobanov = mean(F1),
+            mean_F2_lobanov = mean(F2),
+            sd_F1_lobanov = sd(F1),
+            sd_F2_lobanov = sd(F2))
+
+```
+
+We then add that new data to our raw data.
+
+```{r}
+YOURNAME_formants_binded_lobanov <- YOURNAME_formants_binded %>%
+  left_join(YOURNAME_formants_means_lobanov)
+
+```
+
+We then calculate the normalised F1 and F2 using the formula.
+
+```{r}
+YOURNAME_formants_binded_lobanov <- YOURNAME_formants_binded_lobanov %>%
+  mutate(F1_lobanov = (F1 - mean_F1_lobanov)/sd_F1_lobanov,
+         F2_lobanov = (F2 - mean_F2_lobanov)/sd_F2_lobanov)
+
+```
+
+Now let's plot the new normalised data.
+
+```{r}
+ggplot(data = YOURNAME_formants_binded_lobanov, aes(x = F2_lobanov, y = F1_lobanov, colour = phoneme, label = phoneme)) +
+  geom_text(show.legend = FALSE) +
+  stat_ellipse(level = 0.8, show.legend = FALSE) +
+  scale_x_reverse(position = "top") +
+  scale_y_reverse(position = "right") +
+  facet_wrap(~file) + #new layer!
+  theme_bw()
+
+```
+
