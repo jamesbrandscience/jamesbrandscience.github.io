@@ -25,8 +25,12 @@ research-external: true
 research-url: https://jamesbrandscience.github.io/research
 
 tutorials: true
-research-external: true
-research-url: https://jamesbrandscience.github.io/tutorials
+tutorials-external: true
+tutorials-url: https://jamesbrandscience.github.io/tutorials
+
+sociolex: true
+sociolex-external: true
+sociolex-url: https://jamesbrandscience.github.io/sociolex
 
 url: https://jamesbrandscience.github.io
 # your url: http://USERNAME.github.io
@@ -61,7 +65,7 @@ github: jamesbrandscience
 # reddit: username
 #medium: medium
 # vimeo: myvimeo
-email: james.brand@canterbury.ac.nz
+email: james.brand.ac@gmail.com
 
 authors:
     jamesbrand:
