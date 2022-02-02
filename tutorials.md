@@ -7,6 +7,10 @@ title: Tutorials
 
 Below you can find a number of different tutorials and online resources I have developed on various topics. Please feel free to use and share them.
 
+#### R Minikurz - [Tidyverse](https://jamesbrandscience.github.io/tutorials/ERCEL/ERCEL_tidyverse.html) and [ggplot](https://jamesbrandscience.github.io/tutorials/ERCEL/ERCEL_ggplot.html)
+
+> An introductory course on how to use R and the tidyverse. This is for beginners who may not be too confident using R or for those who are more familiar with base functions and want to adopt a tidy philosophy
+
 #### [Lancaster Sensorimotor Norms shiny app](https://embodiedcognitionlab.shinyapps.io/sensorimotor_norms/)
 
 > An interactive app written in R (using shiny) to allow users to explore the Lancaster Sensorimotor norms database ([Lynott et al. 2019](https://link.springer.com/article/10.3758/s13428-019-01316-z))
@@ -30,4 +34,3 @@ Below you can find a number of different tutorials and online resources I have d
 #### [Artificial language learning](https://github.com/jamesbrandscience/SSoL_2018)
 
 > Workshop on how to use artificial language learning paradigms to investigate language learning and evolution in a laboratory setting (workshop given at SSoL)
-

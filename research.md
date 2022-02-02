@@ -5,13 +5,15 @@ layout: page
 
 ### Research
 
-<!-- 
+<!--
 #### Online Tutorials
 
 * [Introduction to data exploration and visualisation in R](https://jamesbrandscience.github.io/LASS_workshop_ggplot2/Day_2.html)
  -->
 
 #### Papers
+
+**Brand, J.,** Hay, J., Clark, L., Watson, K., & Sóskuthy, M. (2021). Systematic co-variation of monophthongs across speakers of New Zealand English. _Journal of Phonetics_, 88, 101096. [open access](https://www.sciencedirect.com/science/article/pii/S0095447021000711), [osf](https://osf.io/q4j29/), [shiny app](https://onze.shinyapps.io/Covariation_shiny/) and [LabPhon2020 talk](https://youtu.be/KR3l6yqy0r4)
 
 * Lynott, D., Connell, L., Brysbaert, M., **Brand, J.,** & Carney, J. (2019). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts. _Behaviour Research Methods_. [open access](https://link.springer.com/article/10.3758/s13428-019-01316-z), [osf](http://osf.io/7emr6/) and [shiny app](https://embodiedcognitionlab.shinyapps.io/sensorimotor_norms/)
 
@@ -37,7 +39,7 @@ layout: page
 * **Brand, J.** (2017). The role of cognitive factors on the development and evolution of the vocabulary. _(Doctoral dissertation, Lancaster University)._
 [pdf](http://eprints.lancs.ac.uk/123794/1/2018BrandPhD.pdf)
 
-<!-- 
+<!--
 #### Selected Talks
 
 * **Brand, J.**, (2017, November). Using Amazon’s Mechanical Turk for online data collection. Talk presented at _Lancaster University New Tricks_, Lancaster University, UK.
@@ -48,6 +50,8 @@ layout: page
 
 * **Brand, J.**, Monaghan, P., & Walker, P. (2015, June). The changing role of form-to-meaning mappings for the growing vocabulary. Invited talk to the _Phonetics Reading Group_. Lancaster University, UK.
 [slides](https://jamesbrandscience.github.io/assets/Phonetics_Lab_261015.pdf)
+
+-->
 
 #### Posters
 
