@@ -13,7 +13,7 @@ layout: page
 
 #### Papers
 
-**Brand, J.,** Hay, J., Clark, L., Watson, K., & Sóskuthy, M. (2021). Systematic co-variation of monophthongs across speakers of New Zealand English. _Journal of Phonetics_, 88, 101096. [open access](https://www.sciencedirect.com/science/article/pii/S0095447021000711), [osf](https://osf.io/q4j29/), [shiny app](https://onze.shinyapps.io/Covariation_shiny/) and [LabPhon2020 talk](https://youtu.be/KR3l6yqy0r4)
+* **Brand, J.,** Hay, J., Clark, L., Watson, K., & Sóskuthy, M. (2021). Systematic co-variation of monophthongs across speakers of New Zealand English. _Journal of Phonetics_, 88, 101096. [open access](https://www.sciencedirect.com/science/article/pii/S0095447021000711), [osf](https://osf.io/q4j29/), [shiny app](https://onze.shinyapps.io/Covariation_shiny/) and [LabPhon2020 talk](https://youtu.be/KR3l6yqy0r4)
 
 * Lynott, D., Connell, L., Brysbaert, M., **Brand, J.,** & Carney, J. (2019). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts. _Behaviour Research Methods_. [open access](https://link.springer.com/article/10.3758/s13428-019-01316-z), [osf](http://osf.io/7emr6/) and [shiny app](https://embodiedcognitionlab.shinyapps.io/sensorimotor_norms/)
 
