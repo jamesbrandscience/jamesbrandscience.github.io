@@ -93,6 +93,7 @@ gavagai: true
 contact: true
 research: true
 tutorials: true
+sociolex: true
 
 # do you want to show the "read time" of the posts?
 read-time: true
