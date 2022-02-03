@@ -20,7 +20,7 @@ The core aims of the project are:
 # People
 - James Brand (Principal Investigator)
 
-- Adam Kříž (Post-doc)ss
+- Adam Kříž (Post-doc)
 
 - Mikuláš Preininger (PhD student)
 
