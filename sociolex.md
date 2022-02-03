@@ -5,10 +5,10 @@ title: SocioLex
 
 ![Profile Image](https://jamesbrandscience.github.io/assets/sociolex.png)
 
-# Overview
+## Overview
 SocioLex is a [PRIMUS](https://cuni.cz/UKEN-558.html) funded project being run at [Ústav českého jazyka a teorie komunikace](https://ucjtk.ff.cuni.cz/), Filozofická Fakulta Univerzity Karlovy (Institute of Czech Language and Theory of Communication, Faculty of Arts, Charles University).
 
-# Aims
+## Aims
 The core aims of the project are:
 
 - To develop the first large-scale quantitative norms for social dimensions of word meaning
@@ -17,7 +17,7 @@ The core aims of the project are:
 
 - To understand the role of socio-semantics in language processing, perception and production
 
-# People
+## People
 - James Brand (Principal Investigator)
 
 - Adam Kříž (Post-doc)
