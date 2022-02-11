@@ -5,11 +5,11 @@ layout: page
 
 ### Dobrý den!
 
-I am a research scientist at the Faculty of Arts at Charles University/Univerzita Karlova, where I am the principal investigator of a [PRIMUS](https://cuni.cz/UKEN-558.html) grant called SocioLex. You can read more about the project [here].
+I am a research scientist at the Faculty of Arts at Charles University/Univerzita Karlova, where I am the principal investigator of a [PRIMUS](https://cuni.cz/UKEN-558.html) grant called SocioLex. You can read more about the project [here](https://jamesbrandscience.github.io/sociolex).
 
-Previously, I have worked as a Post-doctoral Research Fellow at [the NZILLB](https://www.canterbury.ac.nz/nzilbb/) - University of Canterbury in New Zealand, researching the sociolinguistic factors of sound change. I was also a Post-doc in the [Embodied Cognition Lab](http://www.lancaster.ac.uk/staff/connelll/lab/) at Lancaster University.
+Previously, I have worked as a Post-doctoral Research Fellow at [the NZILLB](https://www.canterbury.ac.nz/nzilbb/) - University of Canterbury in New Zealand, researching the sociolinguistic factors of sound change. I was also a Post-doc in the [Embodied Cognition Lab](http://www.lancaster.ac.uk/staff/connelll/lab/) at Lancaster University, working on the sensorimotor norms.
 
-I completed my PhD at Lancaster University under the supervision of [Prof Padraic Monaghan](http://www.lancaster.ac.uk/staff/monaghan/) and [Dr Peter Walker](http://www.lancaster.ac.uk/psychology/people/peter-walker/)
+I completed my PhD in psychology at Lancaster University under the supervision of [Prof Padraic Monaghan](http://www.lancaster.ac.uk/staff/monaghan/) and [Dr Peter Walker](http://www.lancaster.ac.uk/psychology/people/peter-walker/)
 
 #### Research Interests
 How do cognitive biases shape our language? My research focuses on the different ways
