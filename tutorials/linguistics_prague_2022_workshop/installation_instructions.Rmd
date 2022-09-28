@@ -39,13 +39,37 @@ knitr::knit_hooks$set(error = function(x, options) {
 
 This workshop will be a practical introduction to ggplot and data visualisation for linguists.
 
-As it is a practical workshop, *you should bring your laptop with you* so you can complete various tasks that the workshop will introduce.
+As it is a practical workshop, **you should bring your laptop with you** so you can complete various tasks that the workshop will introduce.
 
-This page describes the steps needed to install 2 different programs on your computer - *R* and *RStudio*.
+This page describes the steps needed to install 2 different programs on your computer - **R** and **RStudio**.
 
 If you have already installed these, there is no need to read the rest.
 
 If you do not, please follow the instructions below and famililarise yourself with the software.
+
+Worksheet translations available
+
+Disclaimer: may not be very accurate...
+
+<div id="google_translate_element"></div>
+
+<script>
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement({
+
+pageLanguage: 'en'
+
+}, 'google_translate_element');
+
+}
+
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+
+</script>
 
 # Installing R
 
@@ -56,7 +80,7 @@ If you do not, please follow the instructions below and famililarise yourself wi
 
 3. You now have R installed
 
-*help* if you are not sure about these steps, see [https://www.testingdocs.com/install-r-on-windows-11/](https://www.testingdocs.com/install-r-on-windows-11/)
+**need help?** if you are not sure about these steps, see [https://www.testingdocs.com/install-r-on-windows-11/](https://www.testingdocs.com/install-r-on-windows-11/)
 
 ## Mac
 1. Go to [https://mirrors.nic.cz/R/bin/macosx/base/R-4.2.1.pkg](https://mirrors.nic.cz/R/bin/macosx/base/R-4.2.1.pkg) it will download a `.pkg` file automatically
@@ -65,7 +89,7 @@ If you do not, please follow the instructions below and famililarise yourself wi
 
 3. You now have R installed
 
-*help* if you are not sure about these steps, see [https://biostatistics.letgen.org/mikes-biostatistics-book/appendix/install-r/#macScreens](https://biostatistics.letgen.org/mikes-biostatistics-book/appendix/install-r/#macScreens)
+**need help?** if you are not sure about these steps, see [https://biostatistics.letgen.org/mikes-biostatistics-book/appendix/install-r/#macScreens](https://biostatistics.letgen.org/mikes-biostatistics-book/appendix/install-r/#macScreens)
 
 # Installing R Studio
 
@@ -76,7 +100,7 @@ If you do not, please follow the instructions below and famililarise yourself wi
 
 3. You now have RStudio installed
 
-*help* if you are not sure about these steps, see [https://www.youtube.com/watch?v=Iws0JryD54g](https://www.youtube.com/watch?v=Iws0JryD54g)
+**need help?** if you are not sure about these steps, see [https://www.youtube.com/watch?v=Iws0JryD54g](https://www.youtube.com/watch?v=Iws0JryD54g)
 
 ## Mac
 1. Go to [https://download1.rstudio.org/desktop/macos/RStudio-2022.07.2-576.dmg](https://download1.rstudio.org/desktop/macos/RStudio-2022.07.2-576.dmg) it will download a `.dmg` file automatically
@@ -85,7 +109,7 @@ If you do not, please follow the instructions below and famililarise yourself wi
 
 3. You now have RStudio installed
 
-*help* if you are not sure about these steps, see [https://www.youtube.com/watch?v=L5rXTo-46bI](https://www.youtube.com/watch?v=L5rXTo-46bI)
+**need help?** if you are not sure about these steps, see [https://www.youtube.com/watch?v=L5rXTo-46bI](https://www.youtube.com/watch?v=L5rXTo-46bI)
 
 # A quick tour of R:
 
@@ -103,7 +127,7 @@ We first we want to **open RStudio**, when it is open click `File > New file > R
 
 In the `code` section, write the following and see what the output gives you (you can run the line by pressing `command + enter` on a Mac or `ctrl + enter` on Windows).
 
-```{r}
+```{r eval=FALSE}
 cat("Hello world!")
 ```
 
@@ -116,4 +140,4 @@ library(tidyverse)
 
 ```
 
-That is all, see you at the workshop!
+That is all for now, see you at the workshop!
