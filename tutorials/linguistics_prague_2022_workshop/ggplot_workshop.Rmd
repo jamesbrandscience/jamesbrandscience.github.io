@@ -507,7 +507,7 @@ If we want present dynamic data, we can use animations to cycle through variable
 We will need two new packages `gganimate` and `gifski`
 
 ```{r eval=FALSE}
-install.packages("gganmimate")
+install.packages("gganimate")
 install.packages("gifski")
 
 ```
@@ -542,7 +542,7 @@ animation_plot <- animation_plot +
 Now we need to animate it
 
 ```{r}
-animation_plot <- animate(animation_plot, width = 600, height = 600, res = 100)
+animation_plot <- animate(animation_plot, width = 600, height = 600, res = 100, )
 
 ```
 
