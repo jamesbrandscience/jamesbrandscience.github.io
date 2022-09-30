@@ -74,10 +74,489 @@ Note, if you have already installed the tidyverse package you do not need to rei
 ```{r eval=FALSE}
 install.packages("tidyverse")
 
+```
+```{r}
 library(tidyverse)
 
 ```
 
 # Loading in the data
 
+Next, we need to load in the data to use for our visualisations.
 
+This can be done by running the following code, you should see it appear as an R object in the top right box, called `data_exp`
+
+```{r}
+data_exp <- read.csv(url("https://jamesbrandscience.github.io/tutorials/linguistics_prague_2022_workshop/data/workshop_data.csv"))
+
+```
+
+# ggplot basics
+
+For the remainder of the session, we will focus on practically building visualisations using the `ggplot2` package. As with many things in R, there is a whole lot more you can learn to do once you have the basics, so today we will focus on building up your practical knowledge of a number of `ggplot2's` most commonly used features.
+
+## Your first plot
+
+Most of time when are making a ggplot visualisation, you will begin with by calling `ggplot()`...
+
+```{r}
+ggplot()
+
+```
+
+Note this is a useless plot...
+
+It is no surprise that this plot is just blank, as you would have noticed, R relies on you to write useful lines of code in order to get what you want.
+
+<div class = "blue">
+__Q.__ Try retyping the `ggplot()` function again, but this time press the `tab` button when you are inside the brackets. What do you see?
+</div >
+
+<div class = "green">
+__Tip.__ If you are not sure about any function in R, you can type `?ggplot` and run that line of code to get a help page, use this if you want more information about any of the different things we cover later on too.
+</div >
+
+Intuitively, one of most important parts of a `ggplot` is the need for some sort of `data` to plot
+
+Let's try filling in this argument...
+
+```{r}
+ggplot(data = data_exp)
+
+```
+
+Still a blank plot...
+
+The next thing our plot needs is some information about what to plot from the dataset.
+
+Lets try adding some more useful information...
+
+Let's try and plot the `x1` and `y1` variables, so that `x1` is on the __x axis__ and `y1` is on the __y axis__.
+
+This can be done by adding what `ggplot` calls an __aesthetic__, or `aes()` in code form...
+
+<div class = "blue">
+__Q.__ Add in an `aes()` argument to your `ggplot(data = data_exp)` code, specifying inside the brackets that `x = x, y = y`
+</div >
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y))
+
+```
+
+Great, we now have some sort of plot, not a very useful one still, but the _very very very minimum_ amount of information has been provided to get something out.
+
+Lets store what we have as an __object__, we can do this by adding an __assignment__ to our code...
+
+```{r}
+my_plot <- ggplot(data = data_exp, aes(x = x, y = y))
+
+
+```
+
+Now, if we want to see our plot again, all we have to do is run the code `my_plot`
+
+```{r}
+my_plot
+
+```
+
+## Introducing layers and `geoms`
+
+Notice that there is no real data being shown though, that is because we have not added any information about this part of the plot. There are lots of ways to visualise our `x` and `y` variables, but we need to specify this in our code...
+
+The nice thing about `ggplot` is that it works through __layers__, this is a logical way to build up your plot - Imagine an artist working on a painting of a landscape...
+
+* First, they have a blank canvas
+* Second, they add in a background layer
+* Third, a layer of background features
+* Fourth, a layer of salient features
+* Finally, being artistic and making it look a bit fancy
+
+This is similar to how most visualisations are also designed, building up layer by layer.
+
+`ggplot` predominantly adds in these useful layers through what it calls `geoms` or a _geometric object_. There are lots of `geoms` available in `ggplot`. They will normally have useful default settings, so you do not always have to specify every detail about your layer, as `ggplot` will do most of the work for you. We will return to this later, showing why you might want to modify none, some or all of the defaults to get your visualisation looking just the way you want.
+
+In the next few sections we will introduce a few of the most useful `geoms` that `ggplot` has available, highlighting the different ways you can visualise different types of data.
+
+Let's try adding some `points` to our plot that will plot the locations of the x and y values.
+
+We can do this using a `geom_point`
+
+```{r}
+my_plot +
+  geom_point()
+
+```
+
+Within `geom` you can edit other aspects that you might want to change, such as the size or transparency.
+
+```{r}
+my_plot +
+  geom_point(size = 0.5, alpha = 0.5)
+
+```
+
+But remember, if you want to change things that are related directly to the dataset, you have to change them in the `aes()`
+
+Let's make the points have colour, based on the `participant` column
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y, colour = participant)) +
+  geom_point(size = 0.5, alpha = 0.5)
+
+```
+
+If you do not like the legend in the plot, there are two ways you can remove it.
+
+1. Specifying you do not want the legend within the `geom_point`, by specifying `show.legend = FALSE`
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y, colour = participant)) +
+  geom_point(size = 0.5, alpha = 0.5, show.legend = FALSE)
+
+```
+
+2. If you want to remove legends from every geom you have, this might be a bit annoying, so instead you can specify this using `theme(legend.position = "none")`
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y, colour = participant)) +
+  geom_point(size = 0.5, alpha = 0.5) +
+  theme(legend.position = "none")
+
+```
+
+## Creating summary data
+
+We might want to visualise some summary data, such as the mean and SD to provide simple descriptive statistical visualisations. To do this we need to get the data in a suitable format.
+
+1st we need to use `pivot_longer` to get it in a longer format, this will take the `x` and `y` columns and make put either x or y as the values of a new column `coord`, the actual x and y values will be in a new column called `value`
+
+Then we use `group_by` to say that we want to calculate summary data per `participant` and `coord`
+
+We use `summarise`, with the summary functions we want, e.g. `mean = mean(value)` gives the mean of the value column for each participant and coord
+
+We use `ungroup()` at the end as the grouping is finished
+
+```{r}
+data_exp_summary <- data_exp %>%
+  pivot_longer(x:y, names_to = "coord", values_to = "value") %>%
+  group_by(participant, coord) %>%
+  summarise(mean = mean(value),
+            sd = sd(value)) %>%
+  ungroup()
+
+```
+
+Now we have our summary data, we can use it to make a bar plot.
+
+We can use a `geom_col` for this
+
+```{r}
+ggplot(data = data_exp_summary, aes(x = participant, y = mean)) +
+  geom_col()
+
+```
+
+This looks a bit strange, we should have two different values to plot the mean of x and y, per participant.
+
+We can separate the data using `facets`
+
+We can use `facet_wrap`, note that the variable you want to facet by is preceeded by a tilda `~`
+
+```{r}
+ggplot(data = data_exp_summary, aes(x = participant, y = mean)) +
+  geom_col() +
+  facet_wrap(~coord)
+
+```
+
+We can state how many rows or columns we want too
+
+We will use 2 rows to make the visualisation less squashed horizontally
+
+```{r}
+ggplot(data = data_exp_summary, aes(x = participant, y = mean)) +
+  geom_col() +
+  facet_wrap(~coord, nrow = 2)
+
+```
+
+Now we should try to fix the y axis, so that it ranges from 0 to 100, we can do this by `scale_y_continuous()` and saying that the limits of the axis are `0` and `100`, this needs to be a vector, that is why it is within a `c()`
+
+```{r}
+ggplot(data = data_exp_summary, aes(x = participant, y = mean)) +
+  geom_col() +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100))
+
+```
+Now add some colour and make sure the legend is not shown. As it is a bar plot, we need to `fill` the bars, not `colour` them, so we need to specify `fill=participant`
+
+```{r}
+ggplot(data = data_exp_summary, aes(x = participant, y = mean, fill = participant)) +
+  geom_col() +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100)) +
+  theme(legend.position = "none")
+
+```
+ We can also change other things within the `theme` function, for example if we want to change the axis text on the x axis, we can make rotate it at an angle, or change the size etc.
+ 
+ Let's make the text at a 45 degree angle and justify it to the axis
+ 
+ We need to do this by `axis.text.x = element_text(angle = 45, hjust = 1)`
+
+```{r}
+ggplot(data = data_exp_summary, aes(x = participant, y = mean, fill = participant)) +
+  geom_col() +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+ Now we might want to add error bars to our plot, which we should have done when adding the first geom, but we can add it in now.
+ 
+ To do this we will use a `geom_errorbar`, not that we specify new `aes` values within the geom, these are `ymin` and `ymax` as the geom relates only to the y axis values, we calculates these as the `mean` and `+` or `-` the `sd`.
+ 
+ We also specify a `width`, this is 0.2, but see if it looks nicer as 1?
+ 
+```{r}
+ggplot(data = data_exp_summary, aes(x = participant, y = mean, fill = participant)) +
+  geom_col() +
+  geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2) +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+ 
+## Other types of geoms
+
+Bar plots are not always the nicest way to visualise data, especially as they only present summaries. To do this we will leave the summary data and return to the raw data `data_exp`
+
+First we will need to make it in to long format again, we will call this `data_exp_long`
+
+```{r}
+data_exp_long <- data_exp %>%
+  pivot_longer(x:y, names_to = "coord", values_to = "value")
+
+```
+
+We can see some other geoms below
+
+### Boxplot
+
+```{r}
+ggplot(data = data_exp_long, aes(x = participant, y = value, fill = participant)) +
+  geom_boxplot() +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+### Violin
+
+```{r}
+ggplot(data = data_exp_long, aes(x = participant, y = value, fill = participant)) +
+  geom_violin() +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+### Half violin
+
+To do this we will need to install another package for it to work, the `gghalves` package
+
+```{r eval=FALSE}
+install.packages("gghalves")
+
+```
+
+Then load in the package
+
+```{r}
+library(gghalves)
+
+```
+
+Note that you can specify which side you want the half violin to be on and whether we want quantile lines to be drawn. Here the code put the half violins on the right/`r` and draws 25%, 50% and 75% quantile lines
+
+```{r}
+ggplot(data = data_exp_long, aes(x = participant, y = value, fill = participant)) +
+  geom_half_violin(side = "r", draw_quantiles = c(0.25, 0.5, 0.75)) +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+### Raincloud
+
+We can add in some half points to the previous plot to make it a raincloud plot. These are set to the be on the left/`l` along with some size and transparency
+
+```{r}
+ggplot(data = data_exp_long, aes(x = participant, y = value, fill = participant)) +
+  geom_half_violin(side = "r", draw_quantiles = c(0.25, 0.5, 0.75)) +
+  geom_half_point(size = 0.2, alpha = 0.5, side = "l") +
+  facet_wrap(~coord, nrow = 2) +
+  scale_y_continuous(limits = c(0, 100)) +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+### Linear models
+
+We can present the relationship between two different variables, such as is a correlation or a linear model, by using a `geom_smooth`. To do this we need the data in a format where the x and y variables are distinct, so we will go back to our original data `data_exp`.
+
+Note that I added in two arguments `method = "lm"`, which means it is a linear model fit, and `se = FALSE`, which removes the standard error shading of the model.
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y)) +
+  geom_smooth(method = "lm", se = FALSE)
+
+```
+
+It is normally a good idea to visualise the standard error of our models, luckily the default in a `geom_smooth` is `se = TRUE`, so we can just remove that argument
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y)) +
+  geom_smooth(method = "lm")
+
+```
+
+We may also want to change the x and y axis so that they are on a scale that does not skew the visual interpretation to be a bigger effect than it might actually be
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y)) +
+  geom_smooth(method = "lm") +
+  scale_y_continuous(limits = c(0, 100))
+
+```
+
+Let's now make the data facetted by `participant so we can see if this model fit is similar for all participants
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y)) +
+  geom_smooth(method = "lm") +
+  scale_y_continuous(limits = c(0, 100)) +
+  facet_wrap(~participant) +
+  theme_bw()
+
+```
+
+But we may also need to add in the raw data, so we can see whether these models are under or over fitting. We can add some colour too.
+
+Note it matters which order you point your geoms, like a painting if you start with fine details first, but add larger geoms later in the code, they might not be easy to see
+
+```{r}
+ggplot(data = data_exp, aes(x = x, y = y, colour = participant)) +
+  geom_point(size = 0.2, alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  scale_y_continuous(limits = c(0, 100)) +
+  facet_wrap(~participant) +
+  theme_bw() +
+  theme(legend.position = "none")
+
+```
+
+# Saving
+
+You will want to save your visualisations and maybe include them in your publications, to do this we need to do the following
+
+1. store the plot as an R object, let's call the above plot `participant_data_plot`
+
+```{r}
+participant_data_plot <- ggplot(data = data_exp, aes(x = x, y = y, colour = participant)) +
+  geom_point(size = 0.2, alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  scale_y_continuous(limits = c(0, 100)) +
+  facet_wrap(~participant) +
+  theme_bw() +
+  theme(legend.position = "none")
+
+```
+
+2. Use `ggsave` to export the plot to your computer, we need to specify the plot `plot = participant_data_plot` and the filename `filename = participant_data_plot.png` note the `.png` is important as it tells your computer this is an image file
+
+```{r}
+ggsave(plot = participant_data_plot, filename = "participant_data_plot.png")
+
+```
+
+3. There are other defaults that you might want to change, such as the `width`, `height` and resolution/`dpi`, this normally means playing around with different values to get the plot to look right, but `dpi = 400` is normally good.
+
+```{r}
+ggsave(plot = participant_data_plot, filename = "participant_data_plot.png", width = 7, height = 7, dpi = 400)
+
+```
+
+# Animations
+
+If we want present dynamic data, we can use animations to cycle through variables, making it easier to observe trends or patterns.
+
+We will need two new packages `gganimate` and `gifski`
+
+```{r eval=FALSE}
+install.packages("gganmimate")
+install.packages("gifski")
+
+```
+```{r}
+library(gganimate)
+library(gifski)
+
+```
+
+Now we can make a plot that will act as the basis of the animation, this should be what each `frame` of the animation will look like
+
+Let's make a simple x and y scatter plot called `animation_plot`
+
+```{r}
+animation_plot <- ggplot(data = data_exp, aes(x,y)) +
+  geom_point()
+
+```
+
+Next we have to tell it how we want it to be animated, i.e. which variable will it use to change the frames, this can be done with `transition_states`. The `transition_length` and `state_length` arguments are used to specify extra details. We want to animate based on `participant`.
+
+We also will want to add a title to the animation, this is done with `labs(title = "{closest_state}")` where the `{closest_state}` takes the participant value for that frame, there is also so `theme` customisation of the title so it is easier to read
+
+```{r}
+animation_plot <- animation_plot +
+  transition_states(participant, transition_length = 3, state_length = 3) +
+  labs(title = "{closest_state}") +
+  theme(plot.title = element_text(size=22,hjust = 0.5))
+
+```
+
+Now we need to animate it
+
+```{r}
+animation_plot <- animate(animation_plot, width = 600, height = 600, res = 100)
+
+```
+
+You can look at it by just typing the animation object name
+
+```{r}
+animation_plot
+
+```
+
+
+Then save it
+
+```{r}
+anim_save(animation = animation_plot, filename = "animation_plot.gif")
+
+```
