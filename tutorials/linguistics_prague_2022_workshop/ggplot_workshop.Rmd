@@ -1,0 +1,83 @@
+---
+title: "Linguistics Prague 2022 workshop"
+subtitle: "Practical worksheet"
+author: "James Brand (james.brand.ac@gmail.com)"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  rmdformats::readthedown:
+    highlight: pygments
+    toc_depth: 3
+    collapsed: false
+    df_print: paged
+    lightbox: TRUE
+    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      comment = NA)
+knitr::knit_hooks$set(error = function(x, options) {
+  paste0("<pre style=\"color: #B5271E;\"><code>", x, "</code></pre>")
+})
+
+```
+
+```{css echo=FALSE}
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important; 
+    box-shadow: none !important;
+}
+
+```
+
+This workshop will be a practical introduction to ggplot and data visualisation for linguists.
+
+You should have already installed 2 different programs on your computer - **R** and **RStudio**, see [https://jamesbrandscience.github.io/tutorials/linguistics_prague_2022_workshop/installation_instructions.html#a-quick-tour-of-r](https://jamesbrandscience.github.io/tutorials/linguistics_prague_2022_workshop/installation_instructions.html#a-quick-tour-of-r).
+
+Worksheet translations available
+
+Disclaimer: may not be very accurate...
+
+<div id="google_translate_element"></div>
+
+<script>
+
+function googleTranslateElementInit() {
+
+new google.translate.TranslateElement({
+
+pageLanguage: 'en'
+
+}, 'google_translate_element');
+
+}
+
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+
+</script>
+
+# Installing and loading in packages
+
+The firts we will need to do is install and load in the `tidyverse`, this will allow us to make our plots with `ggplot` and do other useful things.
+
+Note, if you have already installed the tidyverse package you do not need to reinstall it, but maybe update it if you have not done so for a while. If you have it installed, just run the `library(tidyverse)` line.
+
+```{r eval=FALSE}
+install.packages("tidyverse")
+
+library(tidyverse)
+
+```
+
+# Loading in the data
+
+
