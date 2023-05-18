@@ -13,6 +13,10 @@ layout: page
 
 #### Papers
 
+* Wilson Black, J., **Brand, J.,** Hay, J., & Clark, L. (2023). Using principal component analysis to explore co‐variation of vowels. _Language and Linguistics Compass_, 17(1), e12479. [open access](https://compass.onlinelibrary.wiley.com/doi/full/10.1111/lnc3.12479), [GitHub repo](https://nzilbb.github.io/PCA_method_supplementary/PCA_method_supplementary.html)
+
+* Preininger, M., **Brand, J.,** & Kříž, A. (2022). Quantifying the Socio-semantic Representations of Words. In _Proceedings of the Annual Meeting of the Cognitive Science Society_ (Vol. 44, No. 44). [pdf](https://escholarship.org/content/qt6bt3q2g3/qt6bt3q2g3_noSplash_f16ca51feb85c84b34ca8e5abefcd237.pdf)
+
 * **Brand, J.,** Hay, J., Clark, L., Watson, K., & Sóskuthy, M. (2021). Systematic co-variation of monophthongs across speakers of New Zealand English. _Journal of Phonetics_, 88, 101096. [open access](https://www.sciencedirect.com/science/article/pii/S0095447021000711), [osf](https://osf.io/q4j29/), [shiny app](https://onze.shinyapps.io/Covariation_shiny/) and [LabPhon2020 talk](https://youtu.be/KR3l6yqy0r4)
 
 * Lynott, D., Connell, L., Brysbaert, M., **Brand, J.,** & Carney, J. (2019). Sensorimotor norms of modality-specific perceptual strength and effector-specific action strength for 40,000 concepts. _Behaviour Research Methods_. [open access](https://link.springer.com/article/10.3758/s13428-019-01316-z), [osf](http://osf.io/7emr6/) and [shiny app](https://embodiedcognitionlab.shinyapps.io/sensorimotor_norms/)
