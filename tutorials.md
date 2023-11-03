@@ -7,6 +7,15 @@ title: Tutorials
 
 Below you can find a number of different tutorials and online resources I have developed on various topics. Please feel free to use and share them.
 
+#### JsPsych and Cognition.run
+
+[Session 1](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_1.html) - Introduction
+[Session 2](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_2.html) - Building experiments: basics
+[Session 3](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_3.html) - Building experiments: intermediate
+[Session 4](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_4.html) - Building experiments: advanced
+
+> An introductory course on how to program experiments in JsPsych and host them using cognition.run. This course is aimed at researchers without access to their own server to still understand and implement online research, collect data from participants and process the data. This course is under construction, I am aiming to extend the course to a 10 week module, but at the moment it will likely take 5-6 hours to work through the sessions.
+
 #### R Minikurz - [Tidyverse](https://jamesbrandscience.github.io/tutorials/ERCEL/ERCEL_tidyverse.html) and [ggplot](https://jamesbrandscience.github.io/tutorials/ERCEL/ERCEL_ggplot.html)
 
 > An introductory course on how to use R and the tidyverse. This is for beginners who may not be too confident using R or for those who are more familiar with base functions and want to adopt a tidy philosophy
