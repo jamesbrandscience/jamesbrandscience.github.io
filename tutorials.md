@@ -11,11 +11,11 @@ Below you can find a number of different tutorials and online resources I have d
 
 [Session 1](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_1.html) - Introduction
 
-[Session 2](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_2.html) - Building experiments: basics
+[Session 2](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_2.html) - Basics
 
-[Session 3](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_3.html) - Building experiments: intermediate
+[Session 3](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_3.html) - Intermediate
 
-[Session 4](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_4.html) - Building experiments: advanced
+[Session 4](https://jamesbrandscience.github.io/jspsych-tutorial/jspsych_4.html) - Advanced
 
 > An introductory course on how to program experiments in JsPsych and host them using cognition.run. This course is aimed at researchers without access to their own server to still understand and implement online research, collect data from participants and process the data. This course is under construction, I am aiming to extend the course to a 10 week module, but at the moment it will likely take 5-6 hours to work through the sessions.
 
