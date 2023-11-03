@@ -13,7 +13,7 @@ layout: page
 
 #### Papers
 
-* Chromý, J., **Brand, J.,** Laurinavichyute, A., Lacina, R., Chromý, J., Brand, J., ... & Lacina, R. (2023). Number agreement attraction in Czech and English comprehension: A direct experimental comparison. _Glossa Psycholinguistics_, 2(1). [open access](https://escholarship.org/uc/item/4md8g417)
+* Chromý, J., **Brand, J.,** Laurinavichyute, A., & Lacina, R. (2023). Number agreement attraction in Czech and English comprehension: A direct experimental comparison. _Glossa Psycholinguistics_, 2(1). [open access](https://escholarship.org/uc/item/4md8g417)
 
 * Wilson Black, J., **Brand, J.,** Hay, J., & Clark, L. (2023). Using principal component analysis to explore co‐variation of vowels. _Language and Linguistics Compass_, 17(1), e12479. [open access](https://compass.onlinelibrary.wiley.com/doi/full/10.1111/lnc3.12479), [GitHub repo](https://nzilbb.github.io/PCA_method_supplementary/PCA_method_supplementary.html)
 
