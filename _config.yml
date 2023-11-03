@@ -1,6 +1,6 @@
 # main text of home
 name: James Brand
-bio: language / learning / evolution
+bio: language / cognition / evolution
 
 # twitter summary info
 description: Personal homepage for James Brand
@@ -12,9 +12,25 @@ picture: assets/images/profile.jpg
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
-resume: true
-resume-external: true
-resume-url: https://jamesbrandscience.github.io/J_Brand_CV.pdf
+CV: true
+CV-external: true
+CV-url: https://jamesbrandscience.github.io/J_Brand_CV.pdf
+
+contact: true
+contact-external: true
+contact-url: https://jamesbrandscience.github.io/contact
+
+research: true
+research-external: true
+research-url: https://jamesbrandscience.github.io/research
+
+tutorials: true
+tutorials-external: true
+tutorials-url: https://jamesbrandscience.github.io/tutorials
+
+sociolex: true
+sociolex-external: true
+sociolex-url: https://jamesbrandscience.github.io/sociolex
 
 url: https://jamesbrandscience.github.io
 # your url: http://USERNAME.github.io
@@ -22,7 +38,7 @@ url: https://jamesbrandscience.github.io
 permalink: /:title/
 
 # To enable google analytics, supply your token below
-# analytics-google: 'UA-MYANALYTICS'
+analytics-google: 'G-LNN9QWCM4X'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
@@ -36,7 +52,7 @@ disqus:
 # if you don't have any of social below, comment the line
 #facebook: myfacebook
 #twitter: mytwitter
-# google: mygoogle
+google: /
 # instagram: myinstagram
 # pinterest: mypinterest
 # linkedin: mylinkedin
@@ -49,7 +65,7 @@ github: jamesbrandscience
 # reddit: username
 #medium: medium
 # vimeo: myvimeo
-email: j.brand@lancaster.ac.uk
+email: james.brand.ac@gmail.com
 
 authors:
     jamesbrand:
@@ -72,8 +88,12 @@ width: normal
 
 # if you don't need "about" or "blog", comment them out below
 about: true
-blog: true
+#blog: true
 gavagai: true
+contact: true
+research: true
+tutorials: true
+sociolex: true
 
 # do you want to show the "read time" of the posts?
 read-time: true

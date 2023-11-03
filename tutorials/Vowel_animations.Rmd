@@ -1,0 +1,328 @@
+---
+title: "Vowel animations tutorial"
+author: "James Brand<br/>Email: james.brand@canterbury.ac.nz<br/>Website: https://jamesbrandscience.github.io"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    df_print: kable
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# How to make a vowel animation in R
+
+This document will give you the basic code structure to generate an aninmated vowel plot. It will give comments on what the different parts of code do, but if anything is unclear do let me know (<james.brand@canterbury.ac.nz>).
+
+## Download
+
+**R markdown file**
+
+The .Rmd file used to generate this file can be downloaded from
+
+<https://jamesbrandscience.github.io/tutorials/Vowel_animations.Rmd>
+
+**Data**
+
+The data required to run the tutorial can be downloaded from
+
+<https://jamesbrandscience.github.io/tutorials/Vowel_animations_data.csv>
+
+# Packages
+
+In order for the code to run we need to install/load certain R packages. This can be done with the code below, which will check for the package and then install or load it for you:
+
+```{r message=FALSE}
+#list the required packages
+load_packages = c(
+                  "tidyverse",
+                  "gganimate",
+                  "DT"
+                  )
+
+#go through the load_packages names and check if they are installed, if they are load them into R, if they are not, install and load them
+for(pkg in load_packages){
+  eval(bquote(library(.(pkg))))
+  if (paste0("package:", pkg) %in% search()){
+    cat(paste0("Successfully loaded the ", pkg, " package.\n"))
+  }else{
+    install.packages(pkg)
+    eval(bquote(library(.(pkg))))
+    if (paste0("package:", pkg) %in% search()){
+      cat(paste0("Successfully loaded the ", pkg, " package.\n"))
+    }
+  }
+}
+
+#remove the load_packages object
+rm(load_packages, pkg)
+```
+
+# Data
+
+The data we require for plotting needs to be in a long format, this means there should be one row for each token of a vowel. The data should have the following variables:
+
+- `Vowel` - Which vowel does the token come from, this can be in Well's lexical set format, e.g. "FLEECE"
+
+- `F1` - The F1 value of the token, this can be normalised or raw, e.g 550
+
+- `F2` - The F2 values of the token, in the same format as F1
+
+- `participant_year_of_birth` - The year the particpant was born in, this has to be numeric, e.g. 1995
+
+The `year_of_birth` variable can be switched for another numeric variable, e.g. year of recording, we will use this variable to move through the animation transistions, think of this as the timing of the animation, it will start at one point and go through each value until it reaches the end.
+
+We can use some dummy data to go through the steps taken to make the animation, this what the data looks like:
+
+```{r}
+#load in the data
+vowels_data <- read.csv("https://jamesbrandscience.github.io/tutorials/Vowel_animations_data.csv")
+
+#look at the first 5 rows
+head(vowels_data)
+
+#get the number of speakers
+paste0("Number of speakers = ", n_distinct(vowels_data$Speaker))
+
+#get the range of the values for year of birth
+paste0("Minimum year of birth = ", min(vowels_data$participant_year_of_birth))
+
+paste0("Maximum year of birth = ", max(vowels_data$participant_year_of_birth))
+
+#get the vowels in the dataset and their token counts
+vowels_data %>%
+  group_by(Vowel) %>%
+  summarise(n_tokens = n())
+
+#take an example speaker to see their token counts per vowel
+vowels_data %>%
+  filter(Speaker == "speaker_002") %>%
+  group_by(Vowel) %>%
+  summarise(n_tokens = n())
+```
+
+As we can see there are a few more variables in the data (`Speaker`, `Gender`), these are not going to be used for the visualisation, but you might have similar ones in your data.
+
+There is also a considerable range of values for the year of birth variable, this is important as it will give us sufficient data points to transition the animation. Similarly, we can see that each vowel has a moderate amount of data (2910 tokens per vowel), the data set has been selected to contain 15 tokens per vowel per speaker (15 tokens x 194 speakers = 2910 tokens), giving us enough data to play with.
+
+# Step 1. Plotting change over time
+
+The first step to take is to plot how `F1` and `F2` (y axis) change as a function of `participant_year_of_birth` (x axis), to do this we can plot this change with a gam smooth, which is similar to a regression line, but a bit more 'wiggly'.
+
+To do this, the code below will:
+
+1. store the plot as an object called `sound_change_plot_smooth`, which will take the `vowels_data` data frame as the data set
+
+2. make the F1 and F2 variables in a long format, i.e. have a variable (`F_variable`) with either F1 or F2 as values, and another variable (`F_value`) containing the values. This is done to make plotting easier.
+
+3. set up a ggplot so that the x axis = participant_year_of_birth, y axis = F_value and the colours = F_variable
+
+4. add a gam smooth, this will plot the 'wiggly' lines showing how the values change, it uses a 
+
+5. add a facet so that each panel is a different vowel
+
+6. add some theme related aesthetics to make it look nicer
+
+```{r fig.width=10}
+# 1.
+sound_change_plot_smooth <-
+  vowels_data %>%
+# 2.
+  pivot_longer(F1:F2, names_to = "F_variable",values_to = "F_value") %>%
+# 3.
+  ggplot(aes(x = participant_year_of_birth, y = F_value, colour = F_variable)) +
+# 4.
+  geom_smooth(method = "gam", formula = y ~ s(x, k = 5, bs = "cs")) +
+# 5.
+  facet_grid(~Vowel) +
+# 6.
+  scale_x_continuous(breaks = c(1875, 1925, 1975)) +
+  theme_bw() +
+  theme(legend.position = "top")
+
+sound_change_plot_smooth
+
+```
+
+# Step 2. Plotting change in F1/F2 space
+
+As the above plot shows, there are different ways in which the F1 and F2 values are changing based on year of birth. This plot is a bit difficult to understand in terms of vowel space though. It does contain important information that we can use to make our next plot, a vowel space of change over time.
+
+To do this we can do the following:
+
+1. extract the values of the gam smooth (wiggly lines) from the above plot, this will give us trajectories of change based on year of birth
+
+2. plot those values using a traditional F1/F2 vowel space
+
+These steps are a bit tricky and completing them will require a bit more complicated code, but as long as you can understand how to get the data from the above plot into our next plot, then that will be the hardest part done!
+
+We will first wrangle the data from the previous plot.
+
+A ggplot contains data which it generates from the code you write, in our `sound_change_plot_smooth` plot, there will be data which gpplot uses to draw diffent parts of the plot (e.g the positions of the wiggly lines, the colours, the axis etc.). We will look 'under the hood' of our `sound_change_plot_smooth` plot to extract the data we want and then re-use it to make another plot.
+
+We can look at the data in the ggplot by using `ggplot_build`, this contains a separate object called `data` which will contain all the underlying data points of the plot (i.e. not our original `vowels_data`, but a new data set containing different values such as the 'wiggly' line co-ordinates).
+
+```{r}
+#note the [[1]] is the index where the data is located, this needs to be specified to access it
+ggplot_build(sound_change_plot_smooth)$data[[1]] %>%
+  datatable()
+```
+
+We can see that there is a lot of data here, unfortunatley this data contains some ambiguous sounding names, e.g. PANEL, we can however 'translate' these variables and see that they actually represent different aspects of the `sound_change_plot_smooth` plot.
+
+A brief translation:
+
+`x` -  the x coordinate, i.e. the year of birth
+
+`y` - the y coordinate, i.e the F value
+
+`PANEL` - the facet panel, i.e. the vowel, where 1 = DRESS, 2 = FLEECE etc.
+
+`group` - the line group, i.e. the formant, where 1 = F1, 2 = F2
+
+The other variables are not important for the rest of the plotting, but you can see that they correspond to other parts of the plot.
+
+To translate the data and make it easier to use, we will do some wrangling:
+
+```{r}
+#extract the smoothed values from the plot and store them
+sound_change_plot_data <- ggplot_build(sound_change_plot_smooth)$data[[1]] %>%
+  mutate(Vowel = fct_recode(PANEL, DRESS = "1", #these values need to be recoded from numbers to vowels
+                            FLEECE = "2",
+                            GOOSE = "3",
+                            KIT = "4",
+                            LOT = "5",
+                            NURSE = "6",
+                            START = "7",
+                            STRUT = "8",
+                            THOUGHT = "9",
+                            TRAP = "10"),
+         F_Variable = fct_recode(factor(group), F1 = "1", #again recode values
+                                 F2 = "2"),
+         participant_year_of_birth = x,
+         F_value = y) %>%
+  select(Vowel:F_value) %>% #keep relevant variables
+  pivot_wider(names_from = F_Variable, values_from = F_value) #transform the data to wide format
+
+```
+
+Now we can use this new data to plot the 'wiggly' trajectories in a vowel space. The plot will have the vowel label (e.g. DRESS) given at the earliest year of birth coordinates, the trajectory of change will be plotted as the lines and an end arrow to show the most recent year of birth coordinates.
+
+```{r}
+sound_change_plot <- sound_change_plot_data %>%
+  #set general aesthetics
+  ggplot(aes(x = F2, y = F1, colour = Vowel, alpha = participant_year_of_birth)) +
+  #add year of birth change trajectories
+  geom_path(size = 0.5, show.legend = FALSE) +
+  #add end points (this gives the arrows) based on the most recent year of birth (top_n takes the largest year of birth value)
+  geom_path(data = sound_change_plot_data %>% group_by(Vowel) %>% top_n(wt = participant_year_of_birth, n = 2),
+            aes(x = F2, y = F1, colour = Vowel, group = Vowel),
+            arrow = arrow(ends = "last", type = "closed", length = unit(0.2, "cm")),
+            inherit.aes = FALSE, show.legend = FALSE) +
+  #plot the vowel labels (e.g. DRESS) based on the oldest year of birth (min takes the smallest year of birth value)
+  geom_text(data = sound_change_plot_data %>% group_by(Vowel) %>% filter(participant_year_of_birth == min(participant_year_of_birth)), aes(x = F2, y = F1, colour = Vowel, group = Vowel, label = Vowel), inherit.aes = FALSE, show.legend = FALSE) +
+  #label the axes
+  xlab("F2 (normalised)") +
+  ylab("F1 (normalised)") +
+  #reverse the axes to follow conventional vowel plotting
+  scale_x_reverse(limits = c(2,-2), position = "top") +
+  scale_y_reverse(limits = c(2.3,-2), position = "right") +
+  #set the colours
+  scale_color_manual(values = c("#9590FF", "#D89000", "#A3A500", "#39B600", "#00BF7D",
+                                 "#00BFC4", "#00B0F6", "#F8766D", "#E76BF3", "#FF62BC")) +
+  #set the theme
+  theme_bw()
+
+sound_change_plot
+```
+
+# Step 3. Animating the plot
+
+As the above plot is static, this might make it a bit complicated to interpret, meaning a long verbal description is needed. A solution to this would be to use animation to show the moving trajectories in simulated time.
+
+To do this, we already have the data needed, we just need to modify the above plot so that it is animated instead of static.
+
+We will transition through the year of birth variable, which will show us the movement of each vowel in the F1/F2 space.
+
+```{r}
+sound_change_plot_animation <- sound_change_plot_data %>%
+  #set general aesthetics
+  ggplot(aes(x = F2, y = F1, colour = Vowel, group = Vowel, label = Vowel)) +
+  geom_text(aes(fontface = 2), size = 5, show.legend = FALSE) +
+  #label the axes
+  xlab("F2 (normalised)") +
+  ylab("F1 (normalised)") +
+  #reverse the axes to follow conventional vowel plotting
+  scale_x_reverse(limits = c(2,-2), position = "top") +
+  scale_y_reverse(limits = c(2.3,-2), position = "right") +
+  #set the colours
+  scale_color_manual(values = c("#9590FF", "#D89000", "#A3A500", "#39B600", "#00BF7D",
+                                 "#00BFC4", "#00B0F6", "#F8766D", "#E76BF3", "#FF62BC")) +
+  #add a title
+  labs(caption = 'Year of birth: {round(frame_time, 0)}') +
+  #set the theme
+  theme_bw() +
+  #make text more visible
+  theme(axis.title = element_text(size = 14, face = "bold"),
+        axis.text.x = element_text(size = 14, face = "bold"),
+        axis.text.y = element_text(size = 14, face = "bold", angle = 270),
+        axis.ticks = element_blank(),
+        plot.caption = element_text(size = 30, hjust = 0)) +
+  #set the variable for the animation transition i.e. the time dimension
+  transition_time(participant_year_of_birth) +
+  #add in a trail to see the path
+  shadow_trail(max_frames = 100, alpha = 0.1) +
+  #set the transistion style
+  ease_aes('linear')
+
+#once the plot has been made we need to animate it with some settings
+animate(sound_change_plot_animation,
+        nframes = 200, fps = 5, start_pause = 10, end_pause = 10, duration = 20,
+        height = 800, width =800)
+
+#save the animation as a .gif
+anim_save(filename = "sound_change_animation.gif")
+```
+
+
+<!-- ```{r} -->
+<!-- vowels_data <- vowels_all %>% -->
+<!--   select(Speaker, participant_year_of_birth, Gender, Vowel, F1_lobanov_2.0, F2_lobanov_2.0) %>% -->
+<!--   mutate(Speaker = fct_anon(f = Speaker, prefix = "speaker_"), -->
+<!--          F1 = F1_lobanov_2.0, -->
+<!--          F2 = F2_lobanov_2.0, -->
+<!--          F1_lobanov_2.0 = NULL, -->
+<!--          F2_lobanov_2.0 = NULL) -->
+
+<!-- vowels_data_summary <- vowels_data %>% -->
+<!--   group_by(Speaker, Vowel) %>% -->
+<!--   summarise(n = n()) %>% -->
+<!--   filter(n < 20) %>% -->
+<!--   distinct(Speaker) -->
+
+<!-- vowels_data <- vowels_data %>% -->
+<!--   filter(!Speaker %in% vowels_data_summary$Speaker, -->
+<!--          participant_year_of_birth < 1975) %>% -->
+<!--   group_by(Speaker, Vowel) %>% -->
+<!--   sample_n(size = 15) -->
+
+<!-- write.csv(vowels_data, "~/Desktop/Vowel_animations_data.csv", row.names = FALSE) -->
+
+<!-- sound_change_plot_smooth <- vowels_data %>% -->
+<!--   gather(F1_lobanov_2.0:F2_lobanov_2.0, key = "F_Variable", value = "Lobanov_2.0") %>% -->
+<!--   ggplot(aes(x = participant_year_of_birth, y = Lobanov_2.0, colour = F_Variable)) + -->
+<!--   geom_smooth(method = "loess") + -->
+<!--   facet_grid(~Vowel) + -->
+<!--   theme_bw() + -->
+<!--   theme(legend.position = "top") -->
+
+<!-- sound_change_plot_smooth -->
+
+<!-- ``` -->
+
+

@@ -1,0 +1,548 @@
+Data exploration and Visualisation
+James Brand
+
+January 18, 2019
+
+Introduction to Day 2
+Learning outcomes
+1 Conceptual building-blocks
+1.1 The joys of data
+1.2 Data exploration
+1.3 Data visualisation
+2 Before we start doing practical things…
+3 Principles of data exploration
+4 Principles of data visualisation
+4.1 The (R)evolution of the figure
+4.2 Design principles
+5 Making your plots with ggplot
+5.1 Your first plot
+5.2 Introducing layers and geoms
+5.3 Two continuous variables
+5.3.1 geom_point
+5.3.2 geom_smooth
+5.4 Categorical variables
+5.4.1 geom_bar
+5.4.2 geom_errorbar
+5.4.3 geom_boxplot
+5.4.4 geom_jitter
+6 Customising your visualisations
+6.1 Colour
+6.2 geom_line
+6.3 alpha
+6.4 facet
+6.5 geom_text_wordcloud
+Introduction to Day 2
+Learning outcomes
+At the end of the day you should be able to:
+
+Explore a dataset in an informative manner
+
+Make informed choices about how best to present data clearly and accurately through visualisations
+
+Use the ggplot2 package to produce visualisations of data
+
+Customise your visualisations so they look awesome to you and your audience
+
+Reap the benefits of using R to quickly modify, update, and reproduce your visualisations
+
+1 Conceptual building-blocks
+1.1 The joys of data
+As technology and methods in the field of lingustics develops, the researcher is rapidly responsible for more and more data. This is ultimately a resource, not a hinderence, but requires the researcher to handle and understand that data better.
+
+For example, if you are interested in analysing data from Twitter, the data one tweet produces is not simply the text of the tweet, instead there are an abudance of additional bits you are given. Although you may not be interested in using all of this data, it is important to remain close to the data you are using and not be detached from it.
+
+From yesterday, you would have learnt how to wrangle data and get it in a shape that is usable for the next steps of data analysis in R. We will continue along this path, still using the Tidyverse, but today we will focus on data exploration and visualisation.
+
+Data produced by just one tweet. Source: http://adilmoujahid.com/posts/2014/07/twitter-analytics/
+Data produced by just one tweet. Source: http://adilmoujahid.com/posts/2014/07/twitter-analytics/
+
+1.2 Data exploration
+It is always a good first step, once your data has been tidyed, to explore that data in some way. It is never a good idea to jump straight into analysing a dataset you have not explored. This is part of getting to know your data. Imagine a situation where I give you a coffee cup but do not say anything else… would you go straight ahead and drink from it? You might ask basic questions first, what is inside, how was it made, is it alright to drink, is there anything wrong with it etc.
+
+These same sort of questions should be asked when you have got your data, what does the data look like, how is it structured, is there anything that
+
+Get to know your coffee/data first. Source: https://s3-media1.fl.yelpcdn.com/bphoto/sUsViyPtZIf_aDZz-2O_oA/ls.jpg
+Get to know your coffee/data first. Source: https://s3-media1.fl.yelpcdn.com/bphoto/sUsViyPtZIf_aDZz-2O_oA/ls.jpg
+
+1.3 Data visualisation
+When getting to know your data, it might be intuitive to look at basic descriptive statistics, that provide summaries of your variables. But sometimes, your data may require visualition to assist in this process, particularly when you have lots of data to work with. As we will see, data visualisation allows you to produce informative representations of your data, providing useful insights and observations that may not be possible from summaries alone. This is a key step to knowing your data better and can often help guide you in the next stages of analysis. These types of visualisation are primarily for you, do not always need to look fancy, but instead inform you in ways not always possible by just looking at numbers.
+
+As the range of options available to visualise your results in different ways grows, you will be faced with decisions that need to be made about how best to present your final analyses. This means considering an audience that you may never encounter, but who need to understand clearly (and sometimes quickly) what it is you are trying to show. Thus, having a suitable and decent visualisation can often make a big impact on your poster/thesis/publication in Science.
+
+Source: http://phdcomics.com/comics.php?f=1796
+Source: http://phdcomics.com/comics.php?f=1796
+
+2 Before we start doing practical things…
+We will continue using the tidyverse to explore and visualise data, to do so we need to do the following:
+
+Tell R that we want to use the tidyverse package… If this loads with no problems, you do not have to do anything else just now
+
+library(tidyverse)
+If you were not able to install and load the tidyverse, we can get around this by running this code…
+
+install.packages(c("dplyr", "ggplot2"))
+library("dplyr")
+library("ggplot2")
+If you have any problems installing or loading these… put up your hand.
+
+put_up_hand <- help("me")
+3 Principles of data exploration
+When you have gone through the process of collecting all of your data, have followed the excellent advice regarding data wrangling (from yesterday), the next step will be to explore your data and make decisions about what your next steps might be in your workflow.
+
+One approach would be to get summary statistics of your data, for example the mean, standard deviation, correlations etc. that can be used as numeric sumamries.
+
+Here is an example of how we might do this:
+
+We will use the anscombe dataset:
+
+First let’s have a look at the data, run the following line of code.
+
+Note that there are 11 rows and 4 columns in this dataset, you can see the last row by clicking on the next button at the bottom.
+
+
+anscombe
+The column names may not be very informative and the data just looks like a lot of numeric values.
+
+Suppose that we are interested in exploring this dataset, specifically we want to know if any of the variables might be related in some way to each other, for example the x1 variable with the y1 variable.
+
+Using your dplyr skills from yesterday…
+
+Q. First, before running the code, identify what the following line of code should give you:
+
+
+anscombe %>% select(x1, y1) %>% summarise_all(mean)
+This tells us the mean for the variables x1 and y1, but it is not very informative…
+
+Now let us get some information about the spread of the data…
+
+We can do this by adding additional funs or functions to our summarise_all argument.
+
+Here we will change the summarise_all(mean) part of the code, so that it reads summarise_all(funs(mean, sd))
+
+Q. What statistic will this add to our output?
+
+
+anscombe %>% select(x1, y1) %>% summarise_all(funs(mean, sd))
+Great, now we have both the mean and the standard deviation of the 2 variables, but we still don’t really know much about the relationship between the two…
+
+Let us get a correlation for the two variables.
+
+
+anscombe %>% summarise(correlation_x1_y1 = cor(x = x1, y = y1))
+The correlation we get is 0.816… this is quite a strong correlation coefficient and suggests that the two variables are strongly related to one another.
+
+Let’s see if another pair of variables are also correlated…
+
+Q. Get the mean and standard deviation for the variables x2 and y2.
+
+Q. Get the correlation coeffecient for the variables x2 and y2.
+
+
+anscombe %>% select(x2, y2) %>% summarise_all(funs(mean, sd))
+
+anscombe %>% summarise(correlation_x2_y2 = cor(x = x2, y = y2))
+Q. Is there anything interesting you notice about the values from x2 and y2?
+
+Hint: Go back and look at the values from x1 and y1
+
+Q. Modify the code to get the mean, sd and correlation coefficients for x3 and y3, as well as x4 and y4
+
+Q. Is there anything interesting?
+
+Q. What does this tell you about the variables?
+
+If we know the following are true for all the variables in the dataset:
+
+x mean = 9
+y mean = 7.5
+x sd = 3.316
+y sd = 2.032
+correlation coefficient = 0.816
+Q. On a piece of paper, draw what you think the raw data should look like for each of the x and y relationships.
+
+i.e. draw 4 separate plots, but don’t look at the raw data!
+
+Q. Now look at the raw data… is there suprising? (you can do this by typing anscombe)
+
+Anscombe’s quartet (Anscombe, 1973) - four sets of data with the same descriptive statistics, but very different when plotted visually
+Anscombe’s quartet (Anscombe, 1973) - four sets of data with the same descriptive statistics, but very different when plotted visually
+
+This is known as Anscombe’s quartet, a carefully designed dataset, where all the mean, sd and correlations are all the same, but when you plot the data visually, you see a very different side to the data. This really highlights the importantance of not simply relying on a quick check of the descriptives, you can gain a lot from a visualisation, even showing things that may not be clear from just the numbers.
+
+Whilst this dataset was indeed carefully designed, it highlights an important part of the data exploration process, i.e. making you question what is inside your data.
+
+There have been instances where researchers have not taken these basic steps and have reported results in a way that may not be a faithful representation of the data…
+
+Q. Look at x3~y3… if you removed the outlier, how would this affect the correlation?
+
+Q. Now look at x4~y4… if you removed the outlier, how would this affect the correlation?
+
+Tip. Have a look at the Datasaurus dozen for more Anscombe’s quartet style examples https://www.autodeskresearch.com/publications/samestats
+
+4 Principles of data visualisation
+4.1 The (R)evolution of the figure
+Throughout the history of science, researchers have used visualisations to represent their results in a range of ways. With the development of technology, we no longer need to rely on pen and paper to produce scientific figures, instead we can utilise computers to do the hard work for us.
+
+However, this does not mean that we can let the computer do all the work for us, producing an informative, interpretable and accurate visualisation can sometimes be challenging, requiring you to make certain choices, but getting it right can really impact upon how somebody reads and understands your work.
+
+Be cautious though, those choices you make when producing your visualisation may also lead to visualisations that are actually not useful…
+
+Source: https://xkcd.com/1945/, via: http://joeystanley.com/downloads/180216-ggplot2-part1.pdf
+Source: https://xkcd.com/1945/, via: http://joeystanley.com/downloads/180216-ggplot2-part1.pdf
+
+4.2 Design principles
+Three key design principles to think about when creating visualisations for others:
+
+Accessibility
+Is there too much information in one single figure?
+Can labels, axes and annotations be read clearly and quickly?
+Can a reader extract the message your visualisation is trying to tell?
+Have you used the most suitable type of plot?
+Can important comparisons be made across variables?
+
+Example of a poor visualisation of data (top) and a more suitable approach (bottom). Source: http://babieslearninglanguage.blogspot.com/2016/11/dont-bar-barplots-but-use-them.html
+Example of a poor visualisation of data (top) and a more suitable approach (bottom). Source: http://babieslearninglanguage.blogspot.com/2016/11/dont-bar-barplots-but-use-them.html
+
+
+
+Accuracy
+Are there any mistakes?
+Have you included measures of variability e.g. 95% confidence intervals?
+Are you axes scaled appropriately?
+Is your presentation choice misleading the reader?
+Have you avoided features that may highlight mistakes, e.g. no raw data points because of outliers?
+An example of a misleading visualisation. Source: https://www.virgintrains.co.uk/about/punctuality/liverpool/
+An example of a misleading visualisation. Source: https://www.virgintrains.co.uk/about/punctuality/liverpool/
+
+
+
+Aesthetics
+Have you made the most of the space avaiable?
+Have colours been used effectively?
+Is there too much whitespace?
+Is the visualisation eye-catching?
+Aspect ratio choices. Source: http://socviz.co/lookatdata.html
+Aspect ratio choices. Source: http://socviz.co/lookatdata.html
+
+5 Making your plots with ggplot
+For the remainder of the session, we will focus on practically building visualisations using the ggplot2 package. As with many things in R, there is a whole lot more you can learn to do once you have the basics, so today we will focus on building up your practical knowledge of a number of ggplot2's most commonly used features.
+
+5.1 Your first plot
+Most of time when are making a ggplot visualisation, you will begin with by calling ggplot()…
+
+
+ggplot()
+Note this is a useless plot…
+
+It is no surprise that this plot is just blank, as you would have noticed, R relies on you to write useful lines of code in order to get what you want.
+
+Q. Try retyping the ggplot() function again, but this time press the tab button when you are inside the brackets. What do you see?
+
+Tip. If you are not sure about any function in R, you can type ?ggplot and run that line of code to get a help page, use this if you want more information about any of the different things we cover later on too.
+
+Intuitively, one of most important parts of a ggplot is the need for some sort of data to plot
+
+Let’s try filling in this argument…
+
+We will use the anscombe dataset again, so add data = anscombe inside the brackets.
+
+
+ggplot(data = anscombe)
+Still a blank plot…
+
+The next thing our plot needs is some information about what to plot from the dataset.
+
+Lets try adding some more useful information…
+
+Let’s try and plot the x1 and y1 variables, so that x1 is on the x axis and y1 is on the y axis.
+
+This can be done by adding what ggplot calls an aesthetic, or aes() in code form…
+
+Q. Add in an aes() argument to your ggplot(data = anscombe) code, specifying inside the brackets that x = x1, y = y1
+
+
+ggplot(data = anscombe, aes(x = x1, y = y1))
+Great, we now have some sort of plot, not a very useful one still, but the very very very minimum amount of information has been provided to get something out.
+
+Lets store what we have as an object, we can do this by adding an assignment to our code…
+
+
+my_plot <- ggplot(data = anscombe, aes(x = x1, y = y1))
+Now, if we want to see our plot again, all we have to do is run the code my_plot
+
+
+my_plot
+5.2 Introducing layers and geoms
+Notice that there is no real data being shown though, that is because we have not added any information about this part of the plot. There are lots of ways to visualise our x1 and y1 variables, but we need to specify this in our code…
+
+The nice thing about ggplot is that it works through layers, this is a logical way to build up your plot - Imagine an artist working on a painting of a landscape…
+
+First, they have a blank canvas
+Second, they add in a background layer
+Third, a layer of background features
+Fourth, a layer of salient features
+Finally, being artistic and making it look a bit fancy
+This is similar to how most visulisations are also designed, building up layer by layer.
+
+ggplot predominantly adds in these useful layers through what it calls geoms or a geometric object. There are lots of geoms available in ggplot. They will normally have useful default settings, so you do not always have to specify every detail about your layer, as ggplot will do most of the work for you. We will return to this later, showing why you might want to modify none, some or all of the defaults to get your visualisation looking just the way you want.
+
+In the next few sections we will introduce a few of the most useful geoms that ggplot has available, highlighting the different ways you can visualise different types of data.
+
+5.3 Two continuous variables
+It is often useful to see how two variables are related to one another, we can show this relationship by using geom_point and geom_smooth, or a combination of both.
+
+5.3.1 geom_point
+First, let’s try a geom that plots our two variables in a scatterplot - this seems like a sensible way to represent 2 continuous varaibles against one another.
+
+Tip. Imagine trying to plot two categorical variables e.g. favourite vowel with first language, using a scatterplot… it would not work.
+
+Scatterplots are most useful when you have continuous (normally in the form of numeric) variables, e.g. reaction time or word frequency
+
+Thus, a scatterplot is really useful when visualising relationships between continuous variables.
+
+
+
+In order to add the data points of our x1 and y1 variables, we need to add this layer to our previously written code, to do this we will use geom_point()
+
+As this is a new layer to our plot, we will have to add it on to our existing plot, this can be done in the following way…
+
+
+my_plot + geom_point()
+Congratulations! You have produced a useful plot using ggplot.
+
+Q. Add in a geom_point argument to your ggplot(data = anscombe, aes(x = x1, y = y1)) code. Does this do the same as the my_plot + geom_point() code?
+
+Q. Using the longer version of your plot code, i.e. ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point(), modify the aesthetics so you plot x2 and y2
+
+Q. Once you have done that explore the rest of variables from the anscombe dataset, again changing the aesthetics
+
+5.3.2 geom_smooth
+Instead of just having raw data points plotted in our scatterplot, we might be interested in seeing if there is a relationship between the two variables. One way we can do this is by adding in another layer to our plot.
+
+geom_smooth is a particularly useful geom for this.
+
+It will add a fitted line to your data, representing a trend between your variables of interest, e.g. to allow you to visualise a correlation or regression model (see the tip below for more information).
+
+Let’s add to our previous plot by including + geom_smooth(method = "lm")
+
+
+ggplot(data = anscombe, aes(x = x1, y = y1)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+Great, you have now produced your next layer to the plot, which is letting you visualise the data in a more informative way.
+
+Q. Try plotting a geom_smooth(method = "lm") but changing the aesthetics to different x and y variables
+
+Q. Do the lines look similar when you compare x2 and y2 etc.?
+
+Q. Notice that we still have our raw data points in from the geom_point function, you can remove these by deleting that part of the code.
+
+Why is it useful to keep them in here though?
+
+Bonus Q. Notice that there is a shaded region around the line, this represents the standard error or se, where the more narrow the se region, the less variance there is in the data.
+
+You can remove this by changing the geom_smooth(method = "lm") to geom_smooth(method = "lm", se = FALSE).
+
+Why is it useful to keep in both the _standard error__ and geom_point? Hint, try the plot with the aesthetics x4 and y4
+Tip. Here we are using the method = "lm" argument to our geom_smooth function, this is basically to let R know that we want a specific type of line to be added to the plot, i.e. one from a linear model or lm for short, we will cover more on linear models and regression tomorrow, so don’t worry too much if this sort of terminology is new to you. If you want to know more about geom_smooth, simply run ?geom_smooth for the help page.
+
+Thus, geom_smooth is particularly useful when visualising trends between continuous variables, showing you the direction and magnitude of the trend
+5.4 Categorical variables
+Whilst plotting two continuous variables is useful, data is often more complicated, incorporating categories i.e. groups that are not on a continuous scale, but are discrete groups, e.g. native language, vowel type, geographical region.
+
+The types of variables have levels which are independent from each other, e.g. possible levels for a geographical region variable would be, Christchurch, Wellington, Auckland, Invercargill etc.
+
+These types of variables will likely be something you are interested in investigating, with relation to your research questions, e.g. are there differences between the pronunciation of certain sounds in different areas of New Zealand?
+
+Let’s have a look at how to compare the x values from the anscombe dataset, first we need to make a long version of the x values, then a summary data frame we can do this using dplyr. Run the code below to generate these two new datasets.
+
+
+anscombe_long_x <- anscombe %>%
+  select(starts_with("x")) %>%
+  gather(key = "x")
+
+anscombe_long_x
+
+anscombe_summary_x <- anscombe_longx %>%
+  group_by(x) %>%
+  summarise(mean= mean(value), sd= sd(value))
+ 
+anscombe_summary_x
+Now we have a long version - ascombe_long_x with 2 variables and 44 rows:
+
+x - a categorical variable, with 4 levels i.e. x1, x2, x3, x4
+
+value - the value of the x variable i.e. a number
+
+We also have a summary dataset - anscombe_summary_x with 3 variables and 4 rows:
+
+x - a categorical variable, with 4 levels i.e. x1, x2, x3, x4
+
+mean - the mean for each of the levels of x
+
+sd- the standard deviation for each of the levels of x
+
+5.4.1 geom_bar
+Let’s plot the data from anscombe_summary_x in a bar plot using geom_bar, with x on the x axis and mean on the y axis.
+
+Note: In geom_bar(), we need to include the stat = "identity" argument, this will ensure the bars represent the actual values in our mean varaible.
+
+
+ggplot(anscombe_summary_x, aes(x = x, y = mean)) +
+  geom_bar(stat = "identity")
+5.4.2 geom_errorbar
+This bar plot is pretty awful, it would help if we had some more information, e.g. the standard deviation, this requires adding an extra layer to our plot, which we can do with geom_errorbar.
+
+Let’s now add in the sd to each of the bars…
+
+Note: We have to update the aesthetic or aes of the plot in geom-errorbar, this will let us inform the ggplot code that we want to also plot some extra information, i.e. the top and bottom of the sd, we need to specify that the bottom of the errorbar ymin should be mean - sd and the top of the bar ymax should be the mean + sd
+
+
+ggplot(anscombe_summary_x, aes(x = x, y = mean)) +
+  geom_bar(stat = "identity") +
+  geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width = 0.1)
+We can also add in the raw data from ascombe_long_x using our geom_point…
+
+Note: Again we need to update the arguments in geom_point to specify what data we are plotting from, i.e. anscombe_long_x as well as the __aesthetics aes(x = x, y = value)
+
+
+ggplot(anscombe_summary_x, aes(x = x, y = mean)) +
+  geom_bar(stat = "identity") +
+  geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width = 0.1) +
+  geom_point(data = anscombe_long_x, aes(x = x, y = value))
+Q. Why are bar plots on their own (i.e. without errorbars or raw data points) not a great way to represent the data?
+
+Q. What happens when you change the width = 0.1 argument in geom_errorbar?
+
+Q. What happens when you change the order of the different geom layers
+
+Q. What else would you do to make this plot show the raw data points better?
+5.4.3 geom_boxplot
+Bar plots are not always the most accurate or useful ways to visualise this type of data, instead we might be interested in using a boxplot.
+
+We can save ourselves time too, as it only depends on the anscombe_long_x data.
+
+
+ggplot(anscombe_long_x, aes(x = x, y = value)) +
+  geom_boxplot()
+Q. What sort of data would a boxplot not be too suitable for?
+
+Q. Can you add a geom_point to the plot representing the means from the anscombe_summary_x data?
+
+Tip. A boxplot has 5 imporant pieces of information, see https://ggplot2.tidyverse.org/reference/geom_boxplot.html for extra information about these.
+
+5.4.4 geom_jitter
+It is not uncommon to have multiple data points at the same location on a plot. If we want to plot our raw data points, on for example a boxplot, we need to be aware of this, as we might be visualising the data in a way that is somewhat inaccurate if the points overlap…
+
+Let’s use geom_jitter, which is a neat solution to this issue. It will take a geom_point and ensure that the data is spread (or jittered) in a way that reduces overlapping datapoints.
+
+
+ggplot(anscombe_long_x, aes(x = x, y = value)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, height = 0)
+Q. What happens when you change the width = 0.1 argument to width = 0.5? Which one is easiest to interpret?
+
+Q. You can change the height argument to the geom_jitter from 0, but why would this not be a good thing to do for our plot? Try it with height = 5.
+
+6 Customising your visualisations
+So far our visualisations have not looked particularly eye-catching, you might be thinking that you could probably make the same plots in excel/SPSS/Python… in this section we will look at the way you can really make your visualisations stand out, whilst also producing concise and readable representations of what can be quite complex datasets.
+
+The nice thing about ggplot2 is that almost every aspect of your visualisation can be modified, tweaked, personalised to suit you and your auidence. This means your code will likely get longer and more complex, but the output will be really impressive!
+
+Let’s work with a more interesting dataset than anscombe, you can read in data from a fake experiment that has been created for the workshop, pretend this is what the researcher is interested in…
+
+We can load in the dataset from by running the following code:
+
+Note: Information about the variables in the green box below.
+
+
+word_learning <- read.csv(url("https://raw.githubusercontent.com/jamesbrandscience/LASS_workshop_ggplot2/master/Word_learning.csv"))
+
+word_learning
+Research question:
+How does the number of years spent in NZ impact on the number of Māori words you can learn over the course of a short Māori language course?
+
+Dependent variable:
+number_of_words - Number of words learnt (continuous numeric)
+
+Independent variables:
+days - Number of days into the course (continuous numeric)
+
+years_in_NZ - Number of years the participant has lived in NZ (categorical, 1, 2, 3, or 4 years)
+
+age_group - Whether the participant was old or young (categorical)
+
+Random variables
+participant - The participant ID (categorical)
+
+
+
+Now let’s visualise the data…
+
+6.1 Colour
+First we will plot:
+
+days on the x axis
+
+number_of_words on the y axis
+
+add a geom_smooth(method = "lm")
+
+Also…
+
+Make different geom_smooth lines for our years_in_NZ, we can do this by adding in colour = years_in_NZ to our aes
+
+
+ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
+  geom_smooth(method = "lm", na.rm = TRUE)
+Now let’s add in some raw data…
+
+6.2 geom_line
+Instead of using geom_point, we can use geom_line to track how number_of_words changes over time.
+
+Note: We need to add an aes to the geom_line, here we will use group = participant to specify that we want lines to be drawn for each participant.
+
+
+ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
+  geom_line(aes(group = participant)) +
+  geom_smooth(method = "lm", na.rm = TRUE)
+This looks a bit messy and noisy, making it difficult to see the actual results…
+
+6.3 alpha
+Let’s change the code to incorporate an alpha…
+
+alpha is a really useful way to make less important layers less salient, it works as a transparency argument.
+
+Note: alpha goes outside of the aes argument.
+
+
+ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
+  geom_line(aes(group = participant), alpha = 0.2) +
+  geom_smooth(method = "lm", na.rm = TRUE)
+6.4 facet
+Let’s now see how the results vary based on age_group…
+
+The visualisation is already incorporating quite a lot of information, so adding in another variable without overcomplicating things could be challenging.
+
+A facet is a really nice way to split your visualisations into separate plots, instead of having everything in one noisy plot. It also acts to quickly divide you datasets so you do not have to generate multiple plots manually.
+
+We can do with one simple layer using facet_wrap.
+
+Note: We can facet more than one variable, but for now we will just focus on basic facetting.
+
+
+ggplot(word_learning, aes(x = days, y = number_of_words, colour = years_in_NZ)) +
+  geom_line(aes(group = participant), alpha = 0.2) +
+  geom_smooth(method = "lm", na.rm = TRUE) +
+  facet_wrap(~age_group)
+6.5 geom_text_wordcloud
+For those who are working with text data…
+
+A wordcloud offers a snapshot visualisation of the text in dataset. These are normally used to represent frequencies and certainly look more readable than a long table.
+
+To make a wordcloud in ggplot, we will need to use an extra package called ggwordcloud…
+
+
+install.packages("ggwordcloud")
+library(ggwordcloud)
+Now we need a dataset…
