@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+    <script src="https://unpkg.com/jspsych@7.3.4"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script>
+    <script src="https://unpkg.com/@jspsych-contrib/plugin-self-paced-reading@2.0.0"></script>
+    <link href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body></body>
+  <script>
+    const jsPsych = initJsPsych();
+
+    var moving_window = {
+      type: jsPsychSelfPacedReading,
+      sentence: "hello this is a self-paced reading experiment",
+      mask_type: 1,
+      mask_on_word: true,
+      mask_colour: "grey",
+      font_size: '24pt',
+      x_align: 'center',
+      line_height: 40,
+      xy_position: [0, 0],
+    };
+
+    jsPsych.run([moving_window]);
+  </script>
+</html>
