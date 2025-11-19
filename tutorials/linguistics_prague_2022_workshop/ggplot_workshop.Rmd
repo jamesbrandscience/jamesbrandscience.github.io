@@ -10,6 +10,9 @@ output:
     collapsed: false
     df_print: paged
     lightbox: TRUE
+    css: sty.css
+    includes:
+      after_body: copy-button.html
     
 ---
 
