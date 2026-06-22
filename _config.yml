@@ -32,6 +32,10 @@ sociolex: true
 sociolex-external: true
 sociolex-url: https://jamesbrandscience.github.io/sociolex
 
+gavagai: true
+gavagai-external: true
+gavagai-url: https://jamesbrandscience.github.io/gavagai
+
 url: https://jamesbrandscience.github.io
 # your url: http://USERNAME.github.io
 
