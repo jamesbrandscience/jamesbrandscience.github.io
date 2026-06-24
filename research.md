@@ -65,13 +65,13 @@ layout: page
 * Monaghan, P., **Brand, J.**, Frost, R.L.A., & Taylor, G. (2017). Multiple, noisy cues for word learning results in robust, generalisable learning. _Proceedings of the 39th Annual Conference of the Cognitive Science Society._
 [pdf](http://www.lancaster.ac.uk/staff/monaghan/papers/monaghan_brand_frost_taylor_17_cogsciconf.pdf)
 
-#### In prep
+### In prep
 
 * **Brand, J.**, & Monaghan, P. (In prep). Experimental diachronics: Predictors of lexical stability and change in language evolution.
 
 * **Brand, J.** (In prep). Predicting the age of acquisition of concepts from sensorimotor experience. [preview slides](https://jamesbrandscience.github.io/assets/LuCiD_090718.pdf)
 
-#### PhD Thesis
+### PhD Thesis
 
 * **Brand, J.** (2017). The role of cognitive factors on the development and evolution of the vocabulary. _(Doctoral dissertation, Lancaster University)._
 [pdf](http://eprints.lancs.ac.uk/123794/1/2018BrandPhD.pdf)
@@ -90,7 +90,7 @@ layout: page
 
 -->
 
-#### Posters
+### Posters
 
 * **Brand, J.**, & Monaghan, P. (2016). Predictors of lexical stability in an artificially learnt language. Poster presented at the _38th Annual Conference of the Cognitive Science Society_. Philadelphia, PA.
 [pdf](https://jamesbrandscience.github.io/assets/CogSci_poster_JB_final.pdf)
